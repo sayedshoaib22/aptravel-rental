@@ -32,7 +32,7 @@
   ],
   "shortcuts": [
     {"name": "Bus Rental", "url": "/bus-rental-mumbai/", "description": "Book luxury AC coaches in Mumbai"},
-    {"name": "Cargo Services", "url": "/cargo/", "description": "Cargo and logistics across India"},
+    {"name": "Cargo Services", "url": "/aptravel-main/", "description": "Cargo and logistics across India"},
     {"name": "Contact", "url": "/contact/", "description": "Call or enquire online"},
     {"name": "Our Fleet", "url": "/fleet/", "description": "View luxury bus fleet"}
   ],

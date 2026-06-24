@@ -72,8 +72,8 @@
     },
     {
       "@type": "WebPage",
-      "@id": "https://aptravelrental.in/cargo/#webpage",
-      "url": "https://aptravelrental.in/cargo/",
+      "@id": "https://aptravelrental.in/aptravel-main/#webpage",
+      "url": "https://aptravelrental.in/aptravel-main/",
       "name": "AP Travel & Rental | Cargo & Logistics Services in Mumbai",
       "description": "Reliable cargo and logistics services in Mumbai. Fast, secure and affordable transportation solutions across India.",
       "isPartOf": {"@id": "https://aptravelrental.in/#website"}
@@ -151,10 +151,10 @@
     },
     {
       "@type": "Service",
-      "@id": "https://aptravelrental.in/cargo/#cargo",
+      "@id": "https://aptravelrental.in/aptravel-main/#cargo",
       "name": "Cargo & Logistics Services",
       "provider": {"@id": "https://aptravelrental.in/#localbusiness"},
-      "url": "https://aptravelrental.in/cargo/",
+      "url": "https://aptravelrental.in/aptravel-main/",
       "serviceType": ["Domestic Cargo", "Commercial Logistics", "Parcel Delivery", "Full Truck Load", "Part Truck Load", "Warehouse & Distribution"],
       "areaServed": {"@type": "Country", "name": "India"}
     },
