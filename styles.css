@@ -17,8 +17,8 @@
 }
 
 *{box-sizing:border-box;}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
-body{margin:0;font-family:var(--ff-body);color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;width:100%;}
+body{margin:0;font-family:var(--ff-body);color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;width:100%;}
 img{max-width:100%;display:block;height:auto;}
 a{color:inherit;text-decoration:none;transition:color .2s ease;}
 ul,ol{list-style:none;margin:0;padding:0;}
@@ -302,14 +302,15 @@ body.has-nav .seo-hero{min-height:calc(52vh - var(--nav-h));}
    Responsive
 =========================================================== */
 @media (max-width: 980px){
-  :root{--rail-w:0px;}
+  :root{--rail-w:0px;--topbar-h:34px;}
   .rail{display:none;}
   .rail-toggle{display:none;}
   .mobile-topbar{
-    display:flex;justify-content:center;align-items:center;gap:1.6rem;
+    display:flex;justify-content:center;align-items:center;gap:1rem;
     position:fixed;top:0;left:0;right:0;z-index:86;
-    background:var(--navy);color:var(--gold-light);font-size:.85rem;
-    padding:.55rem 1rem;font-weight:600;border-bottom:1px solid rgba(200,162,74,.15);
+    background:var(--navy);color:var(--gold-light);font-size:.82rem;
+    padding:.45rem 10px;font-weight:600;border-bottom:1px solid rgba(200,162,74,.15);
+    flex-wrap:wrap;
   }
   .mobile-topbar a:hover{color:var(--gold);}
   .nav-bar{left:0;top:var(--topbar-h);}
@@ -323,9 +324,11 @@ body.has-nav .seo-hero{min-height:calc(52vh - var(--nav-h));}
     border-bottom:1px solid rgba(200,162,74,.22);box-shadow:0 12px 24px rgba(0,0,0,.25);
     max-height:70vh;overflow-y:auto;
   }
-  .nav-links.open{display:flex;}
+  .nav-links.open,
+  .nav-links.active{display:flex;}
   .nav-links a{padding:.75rem .85rem;font-size:.95rem;border-radius:8px;}
-  .nav-toggle{display:flex;}
+  .nav-toggle,
+  .hamburger{display:flex;cursor:pointer;z-index:10000;}
   .nav-call{display:none;}
   .nav-bar-inner{position:relative;padding:0 1rem;}
   .page,.site-footer{margin-left:0;}
@@ -458,4 +461,367 @@ form input:focus-visible,form select:focus-visible,form textarea:focus-visible{o
   .btn{padding:1rem 1.8rem;min-height:48px;min-width:48px;}
   a[href^="tel"],a[href^="mailto"],button{min-height:48px;display:inline-flex;align-items:center;}
   .float-btn{width:56px;height:56px;}
+}
+
+/* ===========================================================
+   MOBILE REDESIGN — ≤768px
+   Layout: topbar (28px) → navbar (56px) → hero content
+   Total fixed header stack = 84px
+=========================================================== */
+@media (max-width: 768px) {
+
+  /* ---- CSS variable overrides ---- */
+  :root {
+    --topbar-h: 28px;
+    --nav-h: 56px;
+  }
+
+  /* ==============================
+     1. TOP CONTACT BAR
+     Single slim line, no wrapping
+  ============================== */
+  .mobile-topbar,
+  .top-bar,
+  .contact-bar {
+    height: var(--topbar-h) !important;
+    min-height: unset !important;
+    padding: 0 12px !important;
+    font-size: 11.5px !important;
+    gap: 14px !important;
+    flex-wrap: nowrap !important;
+    overflow: hidden;
+    line-height: var(--topbar-h) !important;
+    white-space: nowrap;
+    justify-content: center;
+    align-items: center;
+  }
+  /* Tighten any icons inside topbar */
+  .mobile-topbar svg,
+  .mobile-topbar img {
+    width: 13px !important;
+    height: 13px !important;
+  }
+
+  /* ==============================
+     2. NAVBAR — one clean row
+     [logo+text]  [CALL NOW] [☰]
+  ============================== */
+  .nav-bar {
+    top: var(--topbar-h) !important;
+    height: var(--nav-h) !important;
+    left: 0 !important;
+  }
+  .nav-bar-inner {
+    height: var(--nav-h) !important;
+    padding: 0 14px !important;
+    gap: 10px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  /* Logo: let it breathe but stay compact */
+  .nav-brand {
+    gap: 8px !important;
+    flex-shrink: 1;
+    min-width: 0;
+  }
+  .nav-brand img {
+    max-height: 36px !important;
+    width: auto !important;
+    flex-shrink: 0;
+  }
+  .nav-brand-text {
+    font-size: 0.82rem !important;
+    line-height: 1.15;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .nav-brand-text small {
+    font-size: 0.52rem !important;
+    letter-spacing: .10em;
+  }
+
+  /* Call Now button — always visible, compact pill */
+  .nav-call {
+    display: inline-flex !important;
+    flex-shrink: 0;
+    align-items: center;
+  }
+  .nav-call .btn,
+  .nav-call .btn-gold-sm {
+    padding: 7px 14px !important;
+    font-size: 0.72rem !important;
+    letter-spacing: .03em !important;
+    border-radius: 999px !important;
+    white-space: nowrap !important;
+    min-height: unset !important;
+    height: 34px !important;
+    line-height: 1 !important;
+    display: inline-flex !important;
+    align-items: center !important;
+  }
+
+  /* Hamburger */
+  .nav-toggle {
+    display: flex !important;
+    flex-shrink: 0;
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important;
+  }
+
+  /* Hidden nav links — full-width dropdown */
+  .nav-links {
+    top: var(--nav-h) !important;
+  }
+
+  /* ==============================
+     3. PAGE BODY OFFSET
+  ============================== */
+  body.has-nav .page {
+    padding-top: calc(var(--topbar-h) + var(--nav-h)) !important;
+  }
+  html:has(body.has-nav) {
+    scroll-padding-top: calc(var(--topbar-h) + var(--nav-h)) !important;
+  }
+
+  /* ==============================
+     4. HERO — full redesign
+     • Content floats at flex-start
+     • Image covers properly
+     • Deeper scrim so text always readable
+  ============================== */
+  .hero-full {
+    min-height: 100svh !important;
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-end !important;
+    overflow: hidden;
+  }
+
+  /* Bus image: show the full bus, not just the grille */
+  .hero-bg {
+    object-position: center 40% !important;
+    object-fit: cover !important;
+  }
+
+  /* Deeper gradient so white text is always legible */
+  .hero-scrim {
+    background: linear-gradient(
+      to top,
+      rgba(11,37,69,1) 0%,
+      rgba(11,37,69,0.82) 35%,
+      rgba(11,37,69,0.45) 65%,
+      rgba(11,37,69,0.25) 100%
+    ) !important;
+  }
+
+  /* Hero content: anchored at the bottom with comfortable padding */
+  .hero-content {
+    position: relative !important;
+    z-index: 2 !important;
+    padding: 24px 20px 80px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    text-align: left !important;
+    margin-top: auto;
+  }
+
+  /* Phone numbers row */
+  .hero-callbar {
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+    flex-wrap: wrap !important;
+    font-size: 0.82rem !important;
+    letter-spacing: .04em !important;
+    margin-bottom: 14px !important;
+    color: var(--gold-light) !important;
+    line-height: 1.4;
+  }
+
+  /* Heading */
+  .hero-content h1 {
+    font-size: clamp(1.65rem, 7.5vw, 2.1rem) !important;
+    line-height: 1.1 !important;
+    letter-spacing: .02em !important;
+    margin-bottom: 12px !important;
+    color: #fff !important;
+  }
+
+  /* Subtext */
+  .hero-content p {
+    font-size: 0.9rem !important;
+    line-height: 1.65 !important;
+    color: #c8d8ed !important;
+    max-width: 100% !important;
+    margin-bottom: 0 !important;
+  }
+
+  /* ==============================
+     5. CTA BUTTONS
+     Side by side, equal width
+  ============================== */
+  .hero-actions,
+  .hero-buttons {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    margin-top: 20px !important;
+    width: 100% !important;
+  }
+  .hero-actions .btn,
+  .hero-buttons .btn {
+    width: 100% !important;
+    padding: 13px 10px !important;
+    font-size: 0.82rem !important;
+    letter-spacing: .04em !important;
+    text-align: center !important;
+    justify-content: center !important;
+    border-radius: 999px !important;
+    min-height: unset !important;
+    height: auto !important;
+  }
+
+  /* ==============================
+     6. WHATSAPP FLOAT BUTTON
+     Smaller, tucked into corner
+  ============================== */
+  .float-btn,
+  .whatsapp-btn,
+  .float-btn.whatsapp-btn {
+    width: 50px !important;
+    height: 50px !important;
+    right: 14px !important;
+    bottom: 14px !important;
+  }
+  .float-btn svg,
+  .float-btn img {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  /* ==============================
+     7. TICKER STRIP
+  ============================== */
+  .hero-ticker {
+    padding: .45rem 0 !important;
+  }
+  .ticker-track span {
+    font-size: .78rem !important;
+    letter-spacing: .10em !important;
+  }
+
+  /* ==============================
+     8. NO HORIZONTAL SCROLL
+  ============================== */
+  .page,
+  .hero-full,
+  .site-footer,
+  section,
+  .fleet,
+  .services,
+  .why-us,
+  .testimonials,
+  .faq,
+  .contact {
+    max-width: 100% !important;
+    overflow-x: hidden;
+  }
+
+  /* ==============================
+     9. SECTION SPACING
+  ============================== */
+  .fleet,
+  .services,
+  .why-us,
+  .testimonials,
+  .faq,
+  .contact {
+    padding: 2.8rem 1rem !important;
+  }
+  .zone-head {
+    gap: 0.6rem;
+    margin-bottom: 1.6rem;
+    flex-wrap: wrap;
+  }
+  .zone-head h2 {
+    font-size: clamp(1.5rem, 5.5vw, 2rem) !important;
+  }
+
+  /* SEO page hero */
+  .seo-hero {
+    min-height: auto !important;
+  }
+  .seo-hero-content {
+    padding: calc(var(--topbar-h) + var(--nav-h) + 20px) 16px 36px !important;
+  }
+  .seo-hero-content h1 {
+    font-size: clamp(1.45rem, 6vw, 1.9rem) !important;
+    line-height: 1.2 !important;
+  }
+}
+
+/* ===========================================================
+   SMALL PHONES — ≤420px
+   Tighten further on very narrow screens
+=========================================================== */
+@media (max-width: 420px) {
+  :root {
+    --topbar-h: 26px;
+    --nav-h: 54px;
+  }
+
+  /* Topbar: hide separator dots, keep phones only */
+  .mobile-topbar {
+    font-size: 11px !important;
+    gap: 10px !important;
+  }
+
+  /* Navbar */
+  .nav-brand img {
+    max-height: 32px !important;
+  }
+  .nav-brand-text {
+    font-size: 0.76rem !important;
+  }
+  .nav-call .btn,
+  .nav-call .btn-gold-sm {
+    padding: 6px 11px !important;
+    font-size: 0.68rem !important;
+    height: 30px !important;
+  }
+  .nav-toggle {
+    width: 32px !important;
+    height: 32px !important;
+  }
+
+  /* Hero heading */
+  .hero-content h1 {
+    font-size: clamp(1.45rem, 7vw, 1.8rem) !important;
+  }
+  .hero-content p {
+    font-size: 0.85rem !important;
+  }
+
+  /* Buttons: still side by side but shorter */
+  .hero-actions .btn,
+  .hero-buttons .btn {
+    padding: 11px 8px !important;
+    font-size: 0.76rem !important;
+  }
+
+  /* Tighten sections */
+  .fleet,
+  .services,
+  .why-us,
+  .testimonials,
+  .faq,
+  .contact {
+    padding: 2.2rem 0.85rem !important;
+  }
 }

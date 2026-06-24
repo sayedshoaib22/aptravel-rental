@@ -14,7 +14,7 @@ INTERNAL_LINKS = """
   <a href="/wedding-bus-rental-mumbai/">Wedding Bus Rental</a>
   <a href="/outstation-bus-rental-mumbai/">Outstation Bus Rental</a>
   <a href="/tempo-traveller-rental-mumbai/">Tempo Traveller Rental</a>
-  <a href="/aptravel-main/">Cargo &amp; Logistics</a>
+  <a href="/cargo/">Cargo &amp; Logistics</a>
   <a href="/cargo-service-mumbai/">Cargo Service Mumbai</a>
   <a href="/fleet/">Our Fleet</a>
   <a href="/about/">About Us</a>
@@ -52,7 +52,7 @@ PAGES = [
 <li><strong>Tourism and pilgrimage</strong> — Group tours to religious sites, hill stations, and sightseeing circuits across Western India.</li>
 <li><strong>School and college trips</strong> — Safe, supervised group transport with well-maintained coaches and responsible drivers.</li>
 </ul>
-<p>We also provide <a href="/aptravel-main/">cargo and logistics services</a> for businesses needing goods transport alongside passenger solutions.</p>
+<p>We also provide <a href="/cargo/">cargo and logistics services</a> for businesses needing goods transport alongside passenger solutions.</p>
 """),
             ("How to Book a Bus in Mumbai", """
 <p>Booking with AP Travel &amp; Rental is straightforward. Call us at +91 93220 99980 or +91 97699 01140, or fill out the contact form on our <a href="/contact/">contact page</a>. Share your trip date, passenger count, pickup location, destination, and any special requirements — decoration for weddings, multiple stops for corporate shuttles, or overnight driver arrangements for outstation trips.</p>
@@ -226,7 +226,7 @@ PAGES = [
 <p>We serve all Mumbai areas including South Mumbai, Western Suburbs, Central Mumbai, Thane, and Navi Mumbai.</p>
 """),
             ("Related Services", """
-<p>In addition to tempo traveller rental, AP Travel offers <a href="/">full bus rental</a>, <a href="/corporate-bus-rental-mumbai/">corporate transport</a>, <a href="/wedding-bus-rental-mumbai/">wedding guest buses</a>, and <a href="/aptravel-main/">cargo logistics</a>. Contact us for all your transport needs in Mumbai.</p>
+<p>In addition to tempo traveller rental, AP Travel offers <a href="/">full bus rental</a>, <a href="/corporate-bus-rental-mumbai/">corporate transport</a>, <a href="/wedding-bus-rental-mumbai/">wedding guest buses</a>, and <a href="/cargo/">cargo logistics</a>. Contact us for all your transport needs in Mumbai.</p>
 """),
         ],
     },
@@ -243,7 +243,7 @@ PAGES = [
             ("Cargo & Goods Transport in Mumbai", """
 <p>Mumbai is India's commercial capital — and moving goods efficiently is essential for businesses and individuals alike. AP Travel &amp; Rental provides comprehensive cargo services from our Sion headquarters, covering domestic freight, parcel delivery, full truck load (FTL), part truck load (PTL), and warehouse distribution across Maharashtra and pan-India destinations.</p>
 <p>Our cargo division leverages the same trusted brand, experienced team, and professional standards that have made us a leading bus rental provider in Mumbai. From a single parcel to full truck loads of commercial freight, we handle every shipment with secure loading, tracked routes, and on-time delivery.</p>
-<p>Visit our dedicated <a href="/aptravel-main/">Cargo &amp; Logistics page</a> for service details, fleet information, and online enquiry.</p>
+<p>Visit our dedicated <a href="/cargo/">Cargo &amp; Logistics page</a> for service details, fleet information, and online enquiry.</p>
 """),
             ("Cargo Services We Offer in Mumbai", """
 <p>Our Mumbai cargo service portfolio includes:</p>
@@ -265,7 +265,7 @@ PAGES = [
 <p>Transparent pricing with no hidden charges, secure handling protocols, and flexible FTL/PTL options make us a preferred cargo partner for Mumbai businesses. Combined with our passenger transport services, we offer a complete mobility solution for companies.</p>
 """),
             ("Book Cargo Service in Mumbai", """
-<p>Ready to ship? Call +91 93220 99980, WhatsApp us, or visit our <a href="/aptravel-main/">cargo services page</a> to submit an enquiry. Our logistics team responds with pickup scheduling, route planning, and a clear quote.</p>
+<p>Ready to ship? Call +91 93220 99980, WhatsApp us, or visit our <a href="/cargo/">cargo services page</a> to submit an enquiry. Our logistics team responds with pickup scheduling, route planning, and a clear quote.</p>
 """),
         ],
         "faq": [
@@ -301,7 +301,7 @@ PAGES = [
             ("Our Fleet & Services", """
 <p>Our passenger fleet includes three premium coaches suited for different group sizes and occasions. The KGN Luxury AC Bus seats up to 45 passengers for corporate and tourism groups. The KGN Executive Bus accommodates 40 guests for weddings and outstation trips. The Blue Star Executive Coach on Eicher Skyline Pro chassis delivers executive-level comfort for long-distance travel.</p>
 <p>Our cargo division offers domestic cargo, commercial logistics, parcel delivery, FTL, PTL, and warehouse distribution — serving Maharashtra, Karnataka, Goa, Telangana, Andhra Pradesh, and pan-India routes.</p>
-<p>Explore our <a href="/fleet/">fleet</a>, <a href="/">bus rental services</a>, and <a href="/aptravel-main/">cargo logistics</a> pages for detailed information.</p>
+<p>Explore our <a href="/fleet/">fleet</a>, <a href="/">bus rental services</a>, and <a href="/cargo/">cargo logistics</a> pages for detailed information.</p>
 """),
             ("Our Location in Mumbai", """
 <p>We are headquartered in Sion, Mumbai — strategically located with easy access to Eastern Express Highway, Sion-Chembur Road, and major Mumbai arterial routes. Our yard serves as the base for fleet maintenance, sanitization, and dispatch for both passenger and cargo operations.</p>
@@ -344,7 +344,7 @@ PAGES = [
 <p>Popular pickup points include Mumbai International Airport (T1 and T2), Chhatrapati Shivaji Maharaj Terminus, Mumbai Central, Dadar, Bandra Terminus, Andheri, and major hotels across the city. For cargo, we pickup from warehouses, factories, retail stores, and residential addresses across Greater Mumbai.</p>
 """),
             ("Online Enquiry Options", """
-<p>You can also submit an enquiry through our homepage contact form at <a href="/#contact">aptravelrental.in</a> or our cargo page at <a href="/aptravel-main/#contact">Cargo &amp; Logistics contact form</a>. Our team typically responds within a few hours during business hours and promptly for urgent requests.</p>
+<p>You can also submit an enquiry through our homepage contact form at <a href="/#contact">aptravelrental.in</a> or our cargo page at <a href="/cargo/#contact">Cargo &amp; Logistics contact form</a>. Our team typically responds within a few hours during business hours and promptly for urgent requests.</p>
 <p>For wedding bookings during peak season, we recommend calling directly to secure your preferred coach. Corporate clients can request a formal quotation by email after an initial phone consultation with our account team.</p>
 """),
             ("Office Hours & Response Times", """
@@ -397,13 +397,13 @@ EXTRA_SECTIONS = [
 <p><strong>How far in advance should I book a bus in Mumbai?</strong> We recommend booking at least 1–2 weeks in advance for corporate and outstation trips, and 2–4 weeks during wedding season (November–February). Last-minute bookings are accommodated based on fleet availability — call us anytime at +91 93220 99980.</p>
 <p><strong>Are your buses sanitized before every trip?</strong> Yes, every coach in our fleet is cleaned and sanitized before departure. Our drivers carry sanitization kits and maintain hygiene standards for passenger safety and comfort.</p>
 <p><strong>Do you provide drivers with the bus rental?</strong> Yes, all our bus rentals include an experienced, professional driver. Our drivers know Mumbai routes and India's highway network, dress appropriately for corporate and wedding events, and maintain punctual schedules.</p>
-<p><strong>Can I also book cargo transport with AP Travel?</strong> Yes, AP Travel &amp; Rental also provides <a href="/aptravel-main/">cargo and logistics services</a> for businesses and individuals. Visit our cargo page or call us for freight, FTL, PTL, and parcel delivery across India.</p>
+<p><strong>Can I also book cargo transport with AP Travel?</strong> Yes, AP Travel &amp; Rental also provides <a href="/cargo/">cargo and logistics services</a> for businesses and individuals. Visit our cargo page or call us for freight, FTL, PTL, and parcel delivery across India.</p>
 """),
     ("Mumbai Transport & Logistics Hub", """
 <p>Mumbai's position as India's financial capital makes it one of the busiest transport hubs in the country. From corporate parks in Bandra Kurla Complex and Andheri East to wedding venues in Juhu and Navi Mumbai, the demand for reliable group transport is constant throughout the year. AP Travel &amp; Rental has built its reputation by consistently delivering on-time, comfortable, and professionally managed bus rental services across this diverse and demanding market.</p>
 <p>Our Sion headquarters provides strategic access to the Eastern Express Highway, Sion-Chembur Road, and the Mumbai suburban network — enabling efficient dispatch for both local city transfers and long outstation journeys. Whether your group departs from a hotel in Colaba, an office in Powai, or a wedding venue in Thane, our drivers arrive prepared with route knowledge and vehicle readiness.</p>
 <p>Beyond passenger transport, Mumbai's commercial activity drives significant demand for cargo and logistics services. Our integrated transport offering — combining premium bus rental with domestic freight and commercial logistics — makes AP Travel a one-stop mobility partner for Mumbai businesses and families.</p>
-<p>Explore our complete service range: <a href="/corporate-bus-rental-mumbai/">corporate bus rental</a>, <a href="/wedding-bus-rental-mumbai/">wedding transport</a>, <a href="/outstation-bus-rental-mumbai/">outstation trips</a>, <a href="/tempo-traveller-rental-mumbai/">tempo traveller rental</a>, <a href="/cargo-service-mumbai/">cargo service</a>, and our full <a href="/fleet/">luxury fleet</a>.</p>
+<p>Explore our complete service range: <a href="/corporate-bus-rental-mumbai/">corporate bus rental</a>, <a href="/wedding-bus-rental-mumbai/">wedding transport</a>, <a href="/outstation-bus-rental-mumbai/">outstation trips</a>, <a href="/tempo-traveller-rental-mumbai/">tempo traveller rental</a>, <a href="/cargo/">cargo logistics</a>, and our full <a href="/fleet/">luxury fleet</a>.</p>
 """),
     ("Safety, Comfort & Professional Standards", """
 <p>At AP Travel &amp; Rental, safety is non-negotiable. Every vehicle undergoes regular mechanical inspection, tyre checks, brake testing, and interior maintenance. Our drivers are selected for their experience, route knowledge, and professional conduct — essential qualities for navigating Mumbai's traffic and India's diverse highway conditions.</p>
@@ -424,7 +424,7 @@ def fix_hrefs(html, prefix):
         "", "bus-rental-mumbai/", "corporate-bus-rental-mumbai/",
         "wedding-bus-rental-mumbai/", "outstation-bus-rental-mumbai/",
         "tempo-traveller-rental-mumbai/", "cargo-service-mumbai/",
-        "about/", "contact/", "fleet/", "aptravel-main/",
+        "about/", "contact/", "fleet/", "cargo/",
     ):
         target = f"{prefix}{path}" if path else f"{prefix}index.html"
         html = html.replace(f'href="/{path}"', f'href="{target}"')
@@ -488,7 +488,7 @@ def nav_bar(prefix, active=None):
         ("Wedding", f"{prefix}wedding-bus-rental-mumbai/", "wedding"),
         ("Outstation", f"{prefix}outstation-bus-rental-mumbai/", "outstation"),
         ("Tempo", f"{prefix}tempo-traveller-rental-mumbai/", "tempo"),
-        ("Cargo", f"{prefix}aptravel-main/", "cargo"),
+        ("Cargo", f"{prefix}cargo/", "cargo"),
         ("About", f"{prefix}about/", "about"),
         ("Contact", f"{prefix}contact/", "contact"),
     ]
@@ -536,7 +536,7 @@ def render_page(p):
   <p>Call <a href="tel:+919322099980">+91 93220 99980</a> or <a href="{prefix}contact/">contact us online</a> for a free quote. Premium service from Sion, Mumbai.</p>
   <a href="tel:+919322099980" class="btn btn-gold-sm">Call Now</a>
 </div>
-{INTERNAL_LINKS.replace('href="/', f'href="{prefix}').replace('href="/aptravel-main/', f'href="{prefix}aptravel-main/').replace('href="/index.html', f'href="{prefix}index.html')}
+{INTERNAL_LINKS.replace('href="/', f'href="{prefix}').replace('href="/cargo/', f'href="{prefix}cargo/').replace('href="/index.html', f'href="{prefix}index.html')}
 
 """
 
@@ -624,7 +624,7 @@ def render_page(p):
 <meta name="twitter:image" content="{DOMAIN}/images/blue-star.webp">
 <meta name="theme-color" content="#0B2545">
 <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' font-weight='bold' fill='%230B2545'>AP</text></svg>">
-<link rel="manifest" href="{prefix}site.webmanifest">
+<link rel="manifest" href="{prefix}manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Sans+3:wght@400;500;600;700&display=swap">
@@ -662,7 +662,7 @@ def render_page(p):
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand"><span class="rail-mark">AP</span><span class="brand-text">Travel &amp; Rental</span><p>Premium bus rental and cargo logistics in Mumbai.</p></div>
-    <div class="footer-links"><h4>Services</h4><a href="{prefix}bus-rental-mumbai/">Bus Rental</a><a href="{prefix}corporate-bus-rental-mumbai/">Corporate</a><a href="{prefix}wedding-bus-rental-mumbai/">Wedding</a><a href="{prefix}outstation-bus-rental-mumbai/">Outstation</a><a href="{prefix}tempo-traveller-rental-mumbai/">Tempo Traveller</a><a href="{prefix}aptravel-main/">Cargo Service</a><a href="{prefix}cargo-service-mumbai/">Cargo Mumbai</a><a href="{prefix}fleet/">Fleet</a><a href="{prefix}about/">About</a><a href="{prefix}contact/">Contact</a></div>
+    <div class="footer-links"><h4>Services</h4><a href="{prefix}bus-rental-mumbai/">Bus Rental</a><a href="{prefix}corporate-bus-rental-mumbai/">Corporate</a><a href="{prefix}wedding-bus-rental-mumbai/">Wedding</a><a href="{prefix}outstation-bus-rental-mumbai/">Outstation</a><a href="{prefix}tempo-traveller-rental-mumbai/">Tempo Traveller</a><a href="{prefix}cargo/">Cargo Service</a><a href="{prefix}cargo-service-mumbai/">Cargo Mumbai</a><a href="{prefix}fleet/">Fleet</a><a href="{prefix}about/">About</a><a href="{prefix}contact/">Contact</a></div>
     <div class="footer-contact"><h4>Contact</h4><p><a href="tel:+919322099980">+91 93220 99980</a></p><p>Sion, Mumbai – 400022</p></div>
   </div>
   <div class="footer-bottom"><p>© <span id="year"></span> AP Travel &amp; Rental. All rights reserved.</p></div>

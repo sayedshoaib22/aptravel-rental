@@ -19,4 +19,4 @@ User-agent: SemrushBot
 User-agent: DotBot
 Disallow: /
 
-Sitemap: https://YOUR-DOMAIN.com/sitemap.xml
+Sitemap: https://aptravelrental.in/sitemap.xml
