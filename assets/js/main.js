@@ -165,6 +165,11 @@
       formStatus.className = 'form-status success';
       formStatus.textContent = `Thanks ${data.name}! We've received your enquiry and will call you at ${data.phone} shortly.`;
     }
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', {
+        'send_to': 'AW-18269844622/MMeUCKL__8UcEI7p3odE'
+      });
+    }
     form.reset();
     setTimeout(() => {
       if (formStatus) formStatus.className = 'form-status';
