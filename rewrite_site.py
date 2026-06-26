@@ -403,10 +403,10 @@ SERVICE_PAGES = {
   </main>
 '''
     },
-    'cargo-service-mumbai/index.html': {
+    '/cargo-service-mumbai//index.html': {
         'title': 'Cargo Service Mumbai | AP Travel & Rental',
         'description': 'Cargo service in Mumbai with AP Travel & Rental. Same-day delivery, interstate logistics, and household shifting.',
-        'canonical': '/cargo-service-mumbai/',
+        'canonical': '//cargo-service-mumbai//',
         'hero_title': 'Cargo Service in Mumbai',
         'hero_text': 'Trusted cargo services for local delivery, interstate freight, and household shifting across Mumbai.',
         'hero_image': 'images/cargo-inside.webp',
@@ -599,7 +599,7 @@ Sitemap: https://aptravelrental.in/sitemap.xml
         '/contact/',
         '/fleet/',
         '/cargo/',
-        '/cargo-service-mumbai/',
+        '//cargo-service-mumbai//',
         '/bus-rental-mumbai/',
         '/corporate-bus-rental-mumbai/',
         '/outstation-bus-rental-mumbai/',

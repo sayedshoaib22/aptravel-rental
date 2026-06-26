@@ -15,7 +15,7 @@ INTERNAL_LINKS = """
   <a href="/outstation-bus-rental-mumbai/">Outstation Bus Rental</a>
   <a href="/tempo-traveller-rental-mumbai/">Tempo Traveller Rental</a>
   <a href="/cargo/">Cargo &amp; Logistics</a>
-  <a href="/cargo-service-mumbai/">Cargo Service Mumbai</a>
+  <a href="//cargo-service-mumbai//">Cargo Service Mumbai</a>
   <a href="/fleet/">Our Fleet</a>
   <a href="/about/">About Us</a>
   <a href="/contact/">Contact</a>
@@ -231,7 +231,7 @@ PAGES = [
         ],
     },
     {
-        "slug": "cargo-service-mumbai",
+        "slug": "/cargo-service-mumbai/",
         "title": "Cargo Service Mumbai | Logistics & Goods Transport | AP Travel & Rental",
         "description": "Reliable cargo and logistics services in Mumbai. Fast, secure and affordable goods transport, FTL, PTL and parcel delivery across India. Call +91 93220 99980.",
         "h1": "Cargo Service in Mumbai",
@@ -423,7 +423,7 @@ def fix_hrefs(html, prefix):
     for path in (
         "", "bus-rental-mumbai/", "corporate-bus-rental-mumbai/",
         "wedding-bus-rental-mumbai/", "outstation-bus-rental-mumbai/",
-        "tempo-traveller-rental-mumbai/", "cargo-service-mumbai/",
+        "tempo-traveller-rental-mumbai/", "/cargo-service-mumbai//",
         "about/", "contact/", "fleet/", "cargo/",
     ):
         target = f"{prefix}{path}" if path else f"{prefix}index.html"
@@ -472,7 +472,7 @@ NAV_ACTIVE = {
     "wedding-bus-rental-mumbai": "wedding",
     "outstation-bus-rental-mumbai": "outstation",
     "tempo-traveller-rental-mumbai": "tempo",
-    "cargo-service-mumbai": "cargo-mumbai",
+    "/cargo-service-mumbai/": "cargo-mumbai",
     "about": "about",
     "contact": "contact",
     "fleet": "fleet",
@@ -662,7 +662,7 @@ def render_page(p):
 <footer class="site-footer">
   <div class="footer-inner">
     <div class="footer-brand"><span class="rail-mark">AP</span><span class="brand-text">Travel &amp; Rental</span><p>Premium bus rental and cargo logistics in Mumbai.</p></div>
-    <div class="footer-links"><h4>Services</h4><a href="{prefix}bus-rental-mumbai/">Bus Rental</a><a href="{prefix}corporate-bus-rental-mumbai/">Corporate</a><a href="{prefix}wedding-bus-rental-mumbai/">Wedding</a><a href="{prefix}outstation-bus-rental-mumbai/">Outstation</a><a href="{prefix}tempo-traveller-rental-mumbai/">Tempo Traveller</a><a href="{prefix}cargo/">Cargo Service</a><a href="{prefix}cargo-service-mumbai/">Cargo Mumbai</a><a href="{prefix}fleet/">Fleet</a><a href="{prefix}about/">About</a><a href="{prefix}contact/">Contact</a></div>
+    <div class="footer-links"><h4>Services</h4><a href="{prefix}bus-rental-mumbai/">Bus Rental</a><a href="{prefix}corporate-bus-rental-mumbai/">Corporate</a><a href="{prefix}wedding-bus-rental-mumbai/">Wedding</a><a href="{prefix}outstation-bus-rental-mumbai/">Outstation</a><a href="{prefix}tempo-traveller-rental-mumbai/">Tempo Traveller</a><a href="{prefix}cargo/">Cargo Service</a><a href="{prefix}/cargo-service-mumbai//">Cargo Mumbai</a><a href="{prefix}fleet/">Fleet</a><a href="{prefix}about/">About</a><a href="{prefix}contact/">Contact</a></div>
     <div class="footer-contact"><h4>Contact</h4><p><a href="tel:+919322099980">+91 93220 99980</a></p><p>Sion, Mumbai – 400022</p></div>
   </div>
   <div class="footer-bottom"><p>© <span id="year"></span> AP Travel &amp; Rental. All rights reserved.</p></div>

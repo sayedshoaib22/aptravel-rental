@@ -107,8 +107,8 @@
     },
     {
       "@type": "WebPage",
-      "@id": "https://aptravelrental.in/cargo-service-mumbai/#webpage",
-      "url": "https://aptravelrental.in/cargo-service-mumbai/",
+      "@id": "https://aptravelrental.in//cargo-service-mumbai//#webpage",
+      "url": "https://aptravelrental.in//cargo-service-mumbai//",
       "name": "Cargo Service Mumbai | Logistics & Goods Transport | AP Travel & Rental",
       "isPartOf": {"@id": "https://aptravelrental.in/#website"}
     },
