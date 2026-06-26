@@ -1,2 +1,83 @@
-// AP Travel & Rental — optimized site interactions
-document.addEventListener('DOMContentLoaded',()=>{const yearEl=document.getElementById('year');if(yearEl)yearEl.textContent=new Date().getFullYear();const navToggle=document.getElementById('navToggle');const navLinks=document.getElementById('navLinks');const navBar=document.getElementById('navBar');if(navToggle&&navLinks){navToggle.addEventListener('click',()=>{const isOpen=navLinks.classList.toggle('open');navToggle.setAttribute('aria-expanded',isOpen);navBar?.classList.toggle('menu-open',isOpen);});navLinks.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{navLinks.classList.remove('open');navToggle.setAttribute('aria-expanded','false');navBar?.classList.remove('menu-open');});});}const railToggle=document.getElementById('railToggle');const rail=document.getElementById('rail');if(railToggle&&rail){railToggle.addEventListener('click',()=>{const isOpen=rail.classList.toggle('open');railToggle.setAttribute('aria-expanded',isOpen);});rail.querySelectorAll('a').forEach(link=>{link.addEventListener('click',()=>{rail.classList.remove('open');railToggle.setAttribute('aria-expanded','false');});});}const form=document.getElementById('contactForm');const status=document.getElementById('formStatus');if(form){form.addEventListener('submit',e=>{e.preventDefault();const name=form.name.value.trim();if(!name)return;status.textContent=`Thanks ${name}, we've received your enquiry. Our team will call you shortly.`;status.style.color='var(--blue)';form.reset();setTimeout(()=>{status.textContent='';},5000);});form.addEventListener('reset',()=>{status.textContent='';});}document.querySelectorAll('.faq-q').forEach(btn=>{btn.addEventListener('click',()=>{const item=btn.closest('.faq-item');const answer=item.querySelector('.faq-a');const expanded=btn.getAttribute('aria-expanded')==='true';document.querySelectorAll('.faq-q').forEach(other=>{if(other!==btn){other.setAttribute('aria-expanded','false');const ans=other.closest('.faq-item').querySelector('.faq-a');ans.style.maxHeight=null;}});btn.setAttribute('aria-expanded',!expanded);answer.style.maxHeight=!expanded?answer.scrollHeight+'px':null;});});const revealEls=document.querySelectorAll('.fleet-row,.service-grid,.testimonial-card,.why-row,.cargo-svc-card,.cargo-fleet-card,.cargo-service-card,.seo-content,.seo-hub,.seo-sidebar-cta');if(window.innerWidth<=768){revealEls.forEach(el=>{el.style.opacity='1';el.style.transform='none';});}else if('IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.style.opacity='1';entry.target.style.transform='translateY(0)';observer.unobserve(entry.target);}});},{threshold:0.05,rootMargin:'0px 0px -50px 0px'});revealEls.forEach(el=>{el.style.cssText='opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease';observer.observe(el);});}if('scrollRestoration' in history){history.scrollRestoration='manual';}});
+﻿// AP Travel & Rental — Updated for new redesigned site
+
+document.addEventListener('DOMContentLoaded', () => {
+  // Year injection
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+  // Nav toggle for mobile
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  const navBar = document.getElementById('navBar');
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('open');
+      navToggle.setAttribute('aria-expanded', isOpen);
+      if (navBar) navBar.classList.toggle('menu-open', isOpen);
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        if (navBar) navBar.classList.remove('menu-open');
+      });
+    });
+  }
+
+  // Sticky nav shadow on scroll
+  if (navBar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        navBar.classList.add('nav-scrolled');
+      } else {
+        navBar.classList.remove('nav-scrolled');
+      }
+    });
+  }
+
+  // Active nav link highlighting based on current path
+  const currentPath = window.location.pathname;
+  navLinks?.querySelectorAll('a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (currentPath === href || currentPath.startsWith(href + '/')) {
+      link.classList.add('active');
+    }
+  });
+
+  // Contact form handler
+  const form = document.getElementById('contactForm');
+  const status = document.getElementById('formStatus');
+  if (form) {
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      const name = form.name?.value.trim();
+      if (!name) return;
+      if (status) {
+        status.textContent = `Thanks ${name}, we've received your enquiry. Our team will call you shortly.`;
+        status.style.color = 'var(--amber)';
+      }
+      form.reset();
+      setTimeout(() => {
+        if (status) status.textContent = '';
+      }, 5000);
+    });
+    form.addEventListener('reset', () => {
+      if (status) status.textContent = '';
+    });
+  }
+
+  // Scroll reveal for elements
+  const revealElements = document.querySelectorAll('.fleet-card, .svc-card, .why-card, .tcard, .hub-link');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('fade-in-up');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  revealElements.forEach(el => observer.observe(el));
+});

@@ -1,22 +1,6 @@
-# AP Travel & Rental - robots.txt
-
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
 Disallow: /temp/
-
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 0
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: AhrefsBot
-User-agent: SemrushBot
-User-agent: DotBot
-Disallow: /
-
-Sitemap: https://YOUR-DOMAIN.com/sitemap.xml
+Sitemap: https://aptravelrental.in/sitemap.xml

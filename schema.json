@@ -6,7 +6,7 @@
       "@id": "https://aptravelrental.in/#organization",
       "name": "AP Travel & Rental",
       "url": "https://aptravelrental.in/",
-      "logo": "https://aptravelrental.in/logo.svg",
+      "logo": "https://aptravelrental.in/images/blue-star.webp",
       "description": "Premium bus rental and cargo logistics services in Mumbai",
       "sameAs": [
         "https://www.facebook.com/aptravelrental",
@@ -69,14 +69,6 @@
       "name": "Bus Rental Service in Mumbai | AP Travel & Rental",
       "isPartOf": {"@id": "https://aptravelrental.in/#website"},
       "about": {"@id": "https://aptravelrental.in/#localbusiness"}
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://aptravelrental.in/aptravel-main/#webpage",
-      "url": "https://aptravelrental.in/aptravel-main/",
-      "name": "AP Travel & Rental | Cargo & Logistics Services in Mumbai",
-      "description": "Reliable cargo and logistics services in Mumbai. Fast, secure and affordable transportation solutions across India.",
-      "isPartOf": {"@id": "https://aptravelrental.in/#website"}
     },
     {
       "@type": "WebPage",
