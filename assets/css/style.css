@@ -897,56 +897,6 @@ button{cursor:pointer;border:none;background:none;font:inherit}
 .float-top.visible{opacity:1;pointer-events:all}
 .float-top:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-2px)}
 
-/* ─── MOBILE NAV ──────────────────────────────────────────── */
-@media(max-width:980px){
-  .nav-links{
-    display:none;
-    position:fixed;top:var(--nav-h);left:0;right:0;
-    background:rgba(10,15,30,.97);
-    backdrop-filter:blur(20px);
-    padding:24px max(24px,5vw) 36px;
-    flex-direction:column;align-items:flex-start;
-    gap:4px;z-index:999;
-    border-bottom:1px solid rgba(255,255,255,.08);
-  }
-  .nav-links.open{display:flex}
-  .nav-links a{
-    font-size:1rem;padding:10px 16px;
-    width:100%;border-radius:var(--radius-sm);
-  }
-  .hamburger{display:flex}
-  .nav-cta-group .btn-nav-call span{display:none}
-}
-
-/* ─── RESPONSIVE ──────────────────────────────────────────── */
-@media(max-width:1024px){
-  .faq-layout{grid-template-columns:1fr}
-  .faq-sticky{position:static}
-  .cargo-layout{grid-template-columns:1fr;gap:48px}
-  .cargo-visual{aspect-ratio:16/7;max-width:600px}
-  .contact-layout{grid-template-columns:1fr}
-  .footer-main{grid-template-columns:1fr 1fr;gap:36px}
-}
-@media(max-width:768px){
-  :root{--nav-h:60px}
-  .section{padding:72px max(20px,4vw)}
-  .hero-stats{grid-template-columns:repeat(2,1fr)}
-  .review-card{flex:0 0 calc(100% - 0px)}
-  .fleet-actions{flex-direction:column}
-  .fleet-actions .btn{flex:none}
-  .form-row{grid-template-columns:1fr}
-  .footer-main{grid-template-columns:1fr}
-  .footer-bottom{flex-direction:column;text-align:center}
-  .float-group{bottom:20px;right:20px}
-}
-@media(max-width:480px){
-  .hero h1{letter-spacing:-.5px}
-  .hero-stats{grid-template-columns:1fr 1fr}
-  .hero-buttons{flex-direction:column}
-  .hero-buttons .btn{width:100%;justify-content:center}
-  .coverage-grid{grid-template-columns:repeat(2,1fr)}
-}
-
 /* ─── ANIMATIONS ──────────────────────────────────────────── */
 .reveal{
   opacity:0;transform:translateY(28px);
@@ -967,4 +917,368 @@ button{cursor:pointer;border:none;background:none;font:inherit}
 
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
+}
+
+/* ============================================================
+   RESPONSIVE SYSTEM
+   Breakpoints: 1024 → 768 → 576 → 425 → 375 → 320
+   ============================================================ */
+
+/* ─── GLOBAL OVERFLOW GUARD ───────────────────────────────── */
+/* Prevents any element from causing horizontal scroll */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* All media embeds scale with their container */
+img, svg, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent grids from overflowing their containers */
+.services-grid,
+.fleet-grid,
+.why-grid,
+.coverage-grid,
+.hero-stats,
+.footer-main,
+.contact-layout,
+.cargo-layout,
+.faq-layout,
+.reviews-track,
+.review-card {
+  min-width: 0;
+}
+
+/* Constrain all inner wrappers to max content width */
+.hero-content,
+.section-inner,
+.navbar-inner,
+.footer-bottom {
+  width: 100%;
+  max-width: 1320px;
+}
+
+/* ─── BREAKPOINT: 1024px (Tablet landscape) ───────────────── */
+/* Collapses two-column layouts, adjusts footer to 2-col grid */
+@media (max-width: 1024px) {
+  /* Hamburger nav: show menu on tablet and below */
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: var(--nav-h);
+    left: 0;
+    right: 0;
+    background: rgba(10, 15, 30, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 24px 24px 36px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    z-index: 999;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    /* Prevent nav overflow from causing horizontal scroll */
+    max-width: 100vw;
+    box-sizing: border-box;
+  }
+  .nav-links.open { display: flex }
+  .nav-links a {
+    font-size: 1rem;
+    padding: 10px 16px;
+    width: 100%;
+    border-radius: var(--radius-sm);
+  }
+  .hamburger { display: flex }
+  /* Hide call button text label to save space; keep icon */
+  .nav-cta-group .btn-nav-call span { display: none }
+
+  /* Hero padding reduction for tablet */
+  .hero-content {
+    padding-top: calc(var(--nav-h) + 40px);
+    padding-bottom: 60px;
+  }
+
+  /* Collapse two-column feature layouts to single column */
+  .cargo-layout,
+  .contact-layout,
+  .faq-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  /* FAQ sidebar: stop being sticky when stacked */
+  .faq-sticky { position: static }
+
+  /* Cargo visual: reduce aspect ratio when full-width */
+  .cargo-visual {
+    aspect-ratio: 16 / 7;
+    max-width: 600px;
+  }
+
+  /* Footer: 2-column on tablet */
+  .footer-main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  /* Hero text: allow full container width */
+  .hero h1,
+  .hero-sub {
+    max-width: 100%;
+  }
+}
+
+/* ─── BREAKPOINT: 768px (Tablet portrait / large mobile) ─── */
+/* Single-column grids, stacked nav CTA, simplified footer */
+@media (max-width: 768px) {
+  /* Reduce nav height for mobile */
+  :root { --nav-h: 60px }
+
+  /* Tighten navbar padding */
+  .navbar { padding: 0 16px }
+  .navbar-inner { gap: 12px }
+
+  /* Slightly shrink brand text to prevent overflow */
+  .brand-text { font-size: 0.95rem }
+  .brand-text small { font-size: 0.6rem }
+
+  /* Section padding: reduce vertical and horizontal */
+  .section { padding: 72px max(20px, 4vw) }
+
+  /* Hero: allow natural height on mobile */
+  .hero { min-height: auto }
+  .hero-content {
+    padding: calc(var(--nav-h) + 30px) 20px 50px;
+  }
+  .hero-sub {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+
+  /* Stack hero CTA buttons vertically, full width */
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .hero-buttons .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Hero stats: 2 columns on mobile */
+  .hero-stats { grid-template-columns: repeat(2, 1fr) }
+
+  /* Service, fleet, why-us cards: single column */
+  .services-grid,
+  .fleet-grid,
+  .why-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Coverage: keep 2-column for visual density */
+  .coverage-grid { grid-template-columns: repeat(2, 1fr) }
+
+  /* Reviews slider: full-width cards */
+  .review-card { flex: 0 0 100% }
+
+  /* Fleet card action buttons: stack vertically */
+  .fleet-actions { flex-direction: column }
+  .fleet-actions .btn {
+    flex: none;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Contact form: stack name/phone row */
+  .form-row { grid-template-columns: 1fr }
+  .contact-form-card { padding: 24px }
+
+  /* Footer: single column, bottom bar centred */
+  .footer-main { grid-template-columns: 1fr }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  /* Floating action buttons: move inward and slightly smaller */
+  .float-group {
+    bottom: 16px;
+    right: 16px;
+    gap: 10px;
+  }
+  .float-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 1.1rem;
+  }
+  .float-top {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ─── BREAKPOINT: 576px (Large phones) ───────────────────── */
+/* Tighter section padding, hero adjustments */
+@media (max-width: 576px) {
+  .section { padding: 64px 18px }
+
+  /* Hero h1: use clamp for fluid sizing without overflow */
+  .hero h1 {
+    font-size: clamp(2rem, 8.5vw, 2.8rem);
+    letter-spacing: -0.5px;
+    line-height: 1.15;
+  }
+  .hero-sub { font-size: 0.95rem }
+
+  /* Stat items: tighter padding */
+  .stat-item { padding: 18px 16px }
+
+  /* Contact form card: minimal padding */
+  .contact-form-card { padding: 20px }
+
+  /* Map embed height reduction */
+  .map-embed { height: 180px }
+
+  /* Footer spacing */
+  .footer-main { padding: 56px 18px 40px }
+}
+
+/* ─── BREAKPOINT: 425px (Standard mobile) ────────────────── */
+/* Further compress layouts for common phone sizes */
+@media (max-width: 425px) {
+  :root { --nav-h: 56px }
+
+  .navbar { padding: 0 14px }
+
+  .section { padding: 56px 16px }
+
+  /* Hero: tighter vertical padding */
+  .hero-content {
+    padding: calc(var(--nav-h) + 24px) 16px 40px;
+  }
+  .hero h1 {
+    font-size: clamp(1.85rem, 8vw, 2.4rem);
+    letter-spacing: -0.5px;
+  }
+  .hero-sub { font-size: 0.9rem }
+  .hero-buttons { margin-bottom: 36px }
+
+  /* Hero stats: collapse to single column */
+  .hero-stats { grid-template-columns: 1fr }
+
+  /* Section title fluid sizing */
+  .section-title {
+    font-size: clamp(1.55rem, 7vw, 2rem);
+    letter-spacing: -0.5px;
+  }
+
+  /* Service cards: tighter inner padding */
+  .svc-card { padding: 28px 22px }
+
+  /* Fleet card body */
+  .fleet-body { padding: 20px }
+
+  /* Why cards */
+  .why-card { padding: 24px 20px }
+
+  /* Contact form */
+  .contact-form-card { padding: 18px }
+
+  /* FAQ question text */
+  .faq-q { font-size: 0.88rem; padding: 16px 18px }
+  .faq-a-inner { padding: 0 18px 16px }
+
+  /* Buttons: ensure minimum touch target */
+  .btn {
+    min-height: 48px;
+    padding: 12px 20px;
+  }
+
+  /* Floating buttons: compact on small phones */
+  .float-btn {
+    width: 46px;
+    height: 46px;
+    font-size: 1rem;
+  }
+  .float-top {
+    width: 38px;
+    height: 38px;
+    font-size: 0.8rem;
+  }
+  .float-group {
+    bottom: 14px;
+    right: 14px;
+  }
+
+  /* Footer */
+  .footer-main { padding: 48px 16px 32px }
+  .footer-bottom { padding: 16px }
+}
+
+/* ─── BREAKPOINT: 375px (iPhone SE / most iPhones) ─────────*/
+/* Fine-tune for the most common small phone viewport */
+@media (max-width: 375px) {
+  .section { padding: 48px 14px }
+
+  .hero-content {
+    padding: calc(var(--nav-h) + 20px) 14px 36px;
+  }
+  .hero h1 {
+    font-size: clamp(1.7rem, 9vw, 2.2rem);
+    letter-spacing: -0.3px;
+  }
+  .hero-sub { font-size: 0.875rem }
+
+  /* Stat number: slightly smaller */
+  .stat-num { font-size: 1.5rem }
+
+  /* Review cards: tighter padding */
+  .review-card { padding: 24px }
+
+  /* Coverage: keep 2 columns but reduce card padding */
+  .coverage-card { padding: 18px 12px }
+
+  .btn {
+    font-size: 0.85rem;
+    padding: 11px 18px;
+  }
+
+  /* Footer */
+  .footer-main { padding: 40px 14px 28px }
+
+  /* Footer badges: wrap on very small screens */
+  .footer-badges { flex-wrap: wrap; justify-content: center }
+}
+
+/* ─── BREAKPOINT: 320px (Minimum supported width) ──────────*/
+/* Hide non-critical UI elements to prevent overflow */
+@media (max-width: 320px) {
+  /* Hide brand text; keep logo badge only */
+  .brand-text { display: none }
+  .brand-badge {
+    width: 34px;
+    height: 34px;
+    font-size: 0.9rem;
+  }
+
+  .hero h1 { font-size: 1.65rem }
+  .hero-sub { font-size: 0.85rem }
+
+  .section { padding: 44px 12px }
+
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.82rem;
+  }
+
+  /* Coverage: single column on the very smallest screens */
+  .coverage-grid { grid-template-columns: 1fr }
+
+  .float-btn { width: 42px; height: 42px }
+  .float-group { bottom: 12px; right: 12px }
 }
