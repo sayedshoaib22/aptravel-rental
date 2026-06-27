@@ -10,19 +10,17 @@
   gtag('config','AW-18269844622');
 </script>
 <script>
-function gtag_report_conversion(url, target) {
+function gtag_report_conversion(url) {
   var callback = function () {
     if (typeof(url) != 'undefined') {
-      if (target === '_blank') {
-        window.open(url, '_blank');
-      } else {
-        window.location = url;
-      }
+      window.location = url;
     }
   };
   gtag('event', 'conversion', {
-    'send_to': 'AW-18269844622/MMeUCKL__8UcEI7p3odE',
-    'event_callback': callback
+      'send_to': 'AW-18269844622/AlM1COjj2MYcEI7p3odE',
+      'value': 1.0,
+      'currency': 'INR',
+      'event_callback': callback
   });
   return false;
 }
