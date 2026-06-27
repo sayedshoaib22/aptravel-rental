@@ -11,7 +11,7 @@
       gtag('config','AW-18269844622');
     </script>
   <script>
-  function gtag_report_conversion(url) {
+  function gtag_report_call(url) {
     var callback = function () {
       if (typeof(url) != 'undefined') {
         window.location = url;
@@ -19,6 +19,22 @@
     };
     gtag('event', 'conversion', {
         'send_to': 'AW-18269844622/AlM1COjj2MYcEI7p3odE',
+        'value': 1.0,
+        'currency': 'INR',
+        'event_callback': callback
+    });
+    return false;
+  }
+  </script>
+  <script>
+  function gtag_report_whatsapp(url) {
+    var callback = function () {
+      if (typeof(url) != 'undefined') {
+        window.location = url;
+      }
+    };
+    gtag('event', 'conversion', {
+        'send_to': 'AW-18269844622/c-49COva28YcEI7p3odE',
         'value': 1.0,
         'currency': 'INR',
         'event_callback': callback
