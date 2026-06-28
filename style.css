@@ -397,7 +397,7 @@ body.dark-mode .navbar {
   right: 0;
   width: 48%;
   height: 100%;
-  background: url('https://images.unsplash.com/photo-1590362891991-f776e747a588?w=1400&q=80') center/cover no-repeat;
+  background: url('/assets/images/blue-star-back.webp') center/cover no-repeat;
   opacity: .55;
 }
 
