@@ -280,3 +280,12 @@
   }
 
 })();
+
+(function () {
+  const origin = window.location.origin || `${window.location.protocol}//${window.location.host}`;
+  const script = document.createElement('script');
+  script.defer = true;
+  script.src = `${origin}/review-popup.js`;
+  script.crossOrigin = 'anonymous';
+  document.body.appendChild(script);
+})();
