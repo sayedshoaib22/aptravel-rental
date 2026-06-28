@@ -11,7 +11,8 @@
       "sameAs": [
         "https://www.facebook.com/aptravelrental",
         "https://www.instagram.com/aptravelrental",
-        "https://www.youtube.com/@aptravelrental"
+        "https://www.youtube.com/@aptravelrental",
+        "https://maps.app.goo.gl/YL9VJGDTUyHfHasf9"
       ],
       "contactPoint": {
         "@type": "ContactPoint",
@@ -29,6 +30,7 @@
       "url": "https://aptravelrental.in/",
       "telephone": "+91-9322099980",
       "priceRange": "₹₹",
+      "sameAs": ["https://maps.app.goo.gl/YL9VJGDTUyHfHasf9"],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Vrindavan, Opp. Omkar Building, Sion-Chembur Road, Chunabhatti",

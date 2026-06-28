@@ -158,26 +158,65 @@
   const form = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
   const API_URL = 'https://vartiss-backend-production-8be8.up.railway.app';
+  const GOOGLE_REVIEW_URL = 'https://maps.app.goo.gl/YL9VJGDTUyHfHasf9';
+
+  const googleReviewButtonHtml = `<a href="${GOOGLE_REVIEW_URL}" target="_blank" rel="noopener noreferrer" class="google-review-btn">⭐ Review Us on Google</a>`;
+
+  const insertReviewFooterButton = () => {
+    document.querySelectorAll('.footer-badges').forEach(badges => {
+      if (!badges.querySelector('.google-review-btn')) {
+        const anchor = document.createElement('a');
+        anchor.href = GOOGLE_REVIEW_URL;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        anchor.className = 'google-review-btn';
+        anchor.textContent = '⭐ Review Us on Google';
+        badges.appendChild(anchor);
+      }
+    });
+  };
+
+  const insertFloatingReviewButton = () => {
+    const floatGroup = document.querySelector('.float-group');
+    if (!floatGroup || floatGroup.querySelector('.float-google-review')) return;
+    const link = document.createElement('a');
+    link.href = GOOGLE_REVIEW_URL;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    link.className = 'float-btn float-google-review';
+    link.setAttribute('aria-label', 'Review Us on Google');
+    link.textContent = '⭐';
+    const referenceNode = floatGroup.querySelector('.float-wa') || floatGroup.querySelector('.float-call') || floatGroup.firstChild;
+    if (referenceNode?.nextSibling) {
+      floatGroup.insertBefore(link, referenceNode.nextSibling);
+    } else {
+      floatGroup.appendChild(link);
+    }
+  };
+
+  const insertReviewButtons = () => {
+    insertReviewFooterButton();
+    insertFloatingReviewButton();
+  };
+
+  insertReviewButtons();
 
   form?.addEventListener('submit', async e => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
     if (!data.name || !data.phone) return;
 
-    // Optimistic UI: show the same success message immediately
     if (formStatus) {
       formStatus.className = 'form-status success';
-      formStatus.textContent = `Thanks ${data.name}! We've received your enquiry and will call you at ${data.phone} shortly.`;
+      formStatus.innerHTML = `Thank you! If you enjoyed our service, please leave us a Google Review. ${googleReviewButtonHtml}`;
     }
 
-    // Analytics conversion (unchanged)
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'conversion', {
         'send_to': 'AW-18269844622/MMeUCKL__8UcEI7p3odE'
       });
     }
 
-    // Send to backend
     const url = `${API_URL}/api/enquiry`;
     console.log('Submitting to:', url);
     try {
@@ -212,7 +251,7 @@
     } finally {
       form.reset();
       setTimeout(() => {
-        if (formStatus) formStatus.className = 'form-status';
+        if (formStatus && !formStatus.classList.contains('error')) formStatus.className = 'form-status';
       }, 6000);
     }
   });
