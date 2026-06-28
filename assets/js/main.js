@@ -157,23 +157,60 @@
   /* ── Contact form ────────────────────────────────────────── */
   const form = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
-  form?.addEventListener('submit', e => {
+  const BACKEND_URL = 'https://backend.railway.internal';
+
+  form?.addEventListener('submit', async e => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(form));
     if (!data.name || !data.phone) return;
+
+    // Optimistic UI: show the same success message immediately
     if (formStatus) {
       formStatus.className = 'form-status success';
       formStatus.textContent = `Thanks ${data.name}! We've received your enquiry and will call you at ${data.phone} shortly.`;
     }
+
+    // Analytics conversion (unchanged)
     if (typeof window.gtag === 'function') {
       window.gtag('event', 'conversion', {
         'send_to': 'AW-18269844622/MMeUCKL__8UcEI7p3odE'
       });
     }
-    form.reset();
-    setTimeout(() => {
-      if (formStatus) formStatus.className = 'form-status';
-    }, 6000);
+
+    // Send to backend
+    try {
+      const resp = await fetch(`${BACKEND_URL}/api/enquiry`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: data.name || '',
+          phone: data.phone || '',
+          email: data.email || '',
+          service: data.service || data.subject || '',
+          message: data.message || ''
+        })
+      });
+      const json = await resp.json().catch(() => null);
+      console.log('Enquiry response', resp.status, json);
+      if (!resp.ok) {
+        console.error('Enquiry failed', json);
+        if (formStatus) {
+          formStatus.className = 'form-status error';
+          formStatus.textContent = 'Sorry, we could not send your enquiry. Please try again later.';
+        }
+      }
+    } catch (err) {
+      console.error('Enquiry error', err);
+      if (formStatus) {
+        formStatus.className = 'form-status error';
+        formStatus.textContent = 'Network error sending enquiry. Please try again later.';
+      }
+    } finally {
+      form.reset();
+      setTimeout(() => {
+        if (formStatus) formStatus.className = 'form-status';
+      }, 6000);
+    }
   });
 
   /* ── Back to top ─────────────────────────────────────────── */

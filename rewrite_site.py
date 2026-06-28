@@ -22,7 +22,7 @@ HEADER_TEMPLATE = '''<!DOCTYPE html>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="description" content="{description}">
-  <meta name="keywords" content="bus rental Mumbai, cargo logistics Mumbai, corporate transport, airport transfer, school transport, tempo traveller, freight service">
+  <meta name="keywords" content="bus rental Mumbai, cargo logistics Mumbai, corporate transport, airport transfer, School Trip, tempo traveller, freight service">
   <meta name="author" content="AP Travel & Rental">
   <meta name="theme-color" content="#0F172A">
   <link rel="canonical" href="https://aptravelrental.in{canonical}">
@@ -94,7 +94,7 @@ FOOTER_TEMPLATE = '''
       <div>
         <h4>Contact</h4>
         <a href="tel:+919322099980">+91 93220 99980</a>
-        <a href="mailto:info@aptravelrental.in">info@aptravelrental.in</a>
+        <a href="mailto:info@apcargos.in">info@apcargos.in</a>
         <span>Vrindavan, Sion-Chembur Road, Chunabhatti, Mumbai 400022</span>
       </div>
     </div>
@@ -160,7 +160,7 @@ PAGES = {
         <article class="card service-card"><span>🛻</span><h3>Tempo Traveller</h3><p>Flexible tempo travel for small groups, airport transfers, and tours.</p><a class="card-link" href="/tempo-traveller-rental-mumbai/">Learn more</a></article>
         <article class="card service-card"><span>✈️</span><h3>Airport Transfer</h3><p>Punctual pickup and drop service with flight monitoring.</p><a class="card-link" href="/contact/">Book now</a></article>
         <article class="card service-card"><span>🏢</span><h3>Corporate Travel</h3><p>Executive shuttles and employee transport for businesses.</p><a class="card-link" href="/corporate-bus-rental-mumbai/">Learn more</a></article>
-        <article class="card service-card"><span>🎒</span><h3>School Transport</h3><p>Safe school trips with experienced drivers and sanitized coaches.</p><a class="card-link" href="/contact/">Enquire</a></article>
+        <article class="card service-card"><span>🎒</span><h3>School Trip</h3><p>Safe school trips with experienced drivers and sanitized coaches.</p><a class="card-link" href="/contact/">Enquire</a></article>
         <article class="card service-card"><span>📦</span><h3>Cargo Logistics</h3><p>Secure household shifting and interstate freight services.</p><a class="card-link" href="/cargo/">Learn more</a></article>
       </div>
     </section>
@@ -268,7 +268,7 @@ PAGES = {
           <h3>Contact details</h3>
           <div class="meta-row"><strong>Phone:</strong><a href="tel:+919322099980">+91 93220 99980</a></div>
           <div class="meta-row"><strong>Phone:</strong><a href="tel:+919769901140">+91 97699 01140</a></div>
-          <div class="meta-row"><strong>Email:</strong><a href="mailto:info@aptravelrental.in">info@aptravelrental.in</a></div>
+          <div class="meta-row"><strong>Email:</strong><a href="mailto:info@apcargos.in">info@apcargos.in</a></div>
           <div class="meta-row"><strong>Address:</strong><span>Vrindavan, Opp. Omkar Building, Sion-Chembur Road, Chunabhatti, Mumbai 400022</span></div>
           <div class="feature-row"><span>24/7 support</span><span>Priority booking</span><span>Vehicle tracking</span></div>
         </aside>
@@ -324,7 +324,7 @@ SUBPAGE_TEMPLATES = {
         'description': 'Contact AP Travel & Rental for premium bus rental and cargo booking in Mumbai. Call +91 93220 99980 or +91 97699 01140.',
         'canonical': '/contact/',
         'hero_title': 'Contact AP Travel & Rental',
-        'hero_text': 'Reach our team for a quote on bus rental, airport transfer, school transport, or cargo logistics.',
+        'hero_text': 'Reach our team for a quote on bus rental, airport transfer, School Trip, or cargo logistics.',
         'hero_image': 'images/cargo-font.webp',
         'active': 'Contact',
         'content': '''
@@ -342,7 +342,7 @@ SUBPAGE_TEMPLATES = {
     <section class="container section">
       <div class="contact-grid">
         <section class="contact-card"><h3>Send an enquiry</h3><form id="contactForm"><div class="form-row"><label for="name">Name</label><input id="name" name="name" type="text" placeholder="Your name" required></div><div class="form-row"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" placeholder="+91 93220 99980" required></div><div class="form-row"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="name@example.com"></div><div class="form-row"><label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Your transport or cargo details" required></textarea></div><div class="form-actions"><button class="btn btn-primary" type="submit">Submit Enquiry</button><button class="btn btn-ghost" type="reset">Reset</button></div><p id="formStatus" aria-live="polite"></p></form></section>
-        <aside class="contact-card"><h3>Contact details</h3><div class="meta-row"><strong>Phone:</strong><a href="tel:+919322099980">+91 93220 99980</a></div><div class="meta-row"><strong>Phone:</strong><a href="tel:+919769901140">+91 97699 01140</a></div><div class="meta-row"><strong>Email:</strong><a href="mailto:info@aptravelrental.in">info@aptravelrental.in</a></div><div class="meta-row"><strong>Address:</strong><span>Vrindavan, Opp. Omkar Building, Sion-Chembur Road, Chunabhatti, Mumbai 400022</span></div><div class="feature-row"><span>24/7 booking support</span><span>Fast response</span><span>WhatsApp enquiries</span></div></aside>
+        <aside class="contact-card"><h3>Contact details</h3><div class="meta-row"><strong>Phone:</strong><a href="tel:+919322099980">+91 93220 99980</a></div><div class="meta-row"><strong>Phone:</strong><a href="tel:+919769901140">+91 97699 01140</a></div><div class="meta-row"><strong>Email:</strong><a href="mailto:info@apcargos.in">info@apcargos.in</a></div><div class="meta-row"><strong>Address:</strong><span>Vrindavan, Opp. Omkar Building, Sion-Chembur Road, Chunabhatti, Mumbai 400022</span></div><div class="feature-row"><span>24/7 booking support</span><span>Fast response</span><span>WhatsApp enquiries</span></div></aside>
       </div>
       <div class="map-card"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3768.146672719445!2d72.8645!3d19.0410!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b695fd0e79eb%3A0x48dfe3ef04cc4071!2sSion%2C%20Mumbai!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
     </section>
