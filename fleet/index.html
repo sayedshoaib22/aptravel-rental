@@ -31,8 +31,8 @@ function gtag_report_conversion(url) {
 <!-- ── Meta ───────────────────────────────────────────── -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
-<meta name="description" content="Explore AP Travel & Rental's premium fleet — 40-seater KGN Executive Bus, 45-seater Blue Star Coach, and 9–17 seater Tempo Travellers. All AC, GPS-tracked, sanitized. Book now: +91 93220 99980.">
-<meta name="keywords" content="bus fleet Mumbai, KGN executive bus, Blue Star coach Mumbai, tempo traveller Mumbai, AC bus hire Mumbai, AP Travel fleet">
+<meta name="description" content="Explore AP Travel & Rental's premium fleet — 40-seater KGN Executive Bus, 45-seater Blue Star Coach, and AP Luxury Sleeper Coach. All AC, GPS-tracked, sanitized. Book now: +91 93220 99980.">
+<meta name="keywords" content="bus fleet Mumbai, KGN executive bus, Blue Star coach Mumbai, luxury sleeper coach Mumbai, AC bus hire Mumbai, AP Travel fleet">
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
 <meta name="author" content="AP Travel & Rental">
 <meta name="geo.region" content="IN-MH">
@@ -42,18 +42,18 @@ function gtag_report_conversion(url) {
 
 <!-- ── Open Graph ─────────────────────────────────────── -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Our Fleet | Premium AC Buses & Tempo Travellers | AP Travel & Rental Mumbai">
-<meta property="og:description" content="KGN Executive Bus (40-seater), Blue Star Coach (45-seater), Tempo Travellers (9–17 seater). All AC, GPS-tracked & professionally driven. Based in Sion, Mumbai.">
+<meta property="og:title" content="Our Fleet | Premium AC Buses & Luxury Sleeper Coach | AP Travel & Rental Mumbai">
+<meta property="og:description" content="KGN Executive Bus (40-seater), Blue Star Coach (45-seater), AP Luxury Sleeper Coach. All AC, GPS-tracked & professionally driven. Based in Sion, Mumbai.">
 <meta property="og:url" content="https://aptravelrental.in/fleet/">
 <meta property="og:image" content="/assets/images/blue-star.webp">
 <meta property="og:locale" content="en_IN">
 <meta property="og:site_name" content="AP Travel & Rental">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Our Fleet | AP Travel & Rental Mumbai">
-<meta name="twitter:description" content="Premium AC buses and tempo travellers for hire in Mumbai. GPS tracked, sanitized, professionally driven.">
+<meta name="twitter:description" content="Premium AC buses and luxury sleeper coach hire in Mumbai. GPS tracked, sanitized, professionally driven.">
 <meta name="twitter:image" content="/assets/images/blue-star.webp">
 
-<title>Our Fleet | AC Buses & Tempo Travellers Mumbai | AP Travel & Rental</title>
+<title>Our Fleet | AC Buses & Luxury Sleeper Coach Mumbai | AP Travel & Rental</title>
 
 <!-- ── Favicon ────────────────────────────────────────── -->
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%232563EB'/><text y='70' x='10' font-size='64' font-weight='900' fill='white' font-family='Arial'>AP</text></svg>">
@@ -172,9 +172,11 @@ function gtag_report_conversion(url) {
 
 /* ── Fleet listing section ─────────────────────────────── */
 .fleet-listing { background: var(--bg); }
+.fleet-listing .section-inner { max-width: 1200px; width: min(100%, 1200px); margin-inline: auto; }
 
 /* ── Vehicle card ──────────────────────────────────────── */
 .vehicle-card {
+  width: 100%;
   background: var(--white);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
@@ -197,6 +199,130 @@ function gtag_report_conversion(url) {
   width: 100%; height: 100%;
   object-fit: cover; display: block;
   transition: transform .6s ease;
+}
+.vehicle-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+}
+.gallery-main {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  min-height: 320px;
+  background: #09101d;
+  cursor: zoom-in;
+}
+.gallery-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+}
+.gallery-main:hover img { transform: scale(1.03); }
+.gallery-main img.fade {
+  animation: fadeImage .35s ease both;
+}
+@keyframes fadeImage {
+  from { opacity: 0.35; transform: scale(1.02); }
+  to { opacity: 1; transform: scale(1); }
+}
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0,0,0,.45);
+  color: #fff;
+  font-size: 1.6rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition: background .2s;
+}
+.gallery-arrow:hover { background: rgba(0,0,0,.7); }
+.gallery-prev { left: 12px; }
+.gallery-next { right: 12px; }
+.gallery-thumbs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-start;
+}
+.thumb-btn {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  overflow: hidden;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: transform .2s, border-color .2s;
+}
+.thumb-btn img {
+  display: block;
+  width: 90px;
+  height: 56px;
+  object-fit: cover;
+}
+.thumb-btn.active,
+.thumb-btn:hover {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+.lightbox {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.92);
+  z-index: 9999;
+  padding: 24px;
+}
+.lightbox.active { display: flex; }
+.lightbox-content {
+  position: relative;
+  width: min(92vw, 960px);
+  max-height: 92vh;
+}
+.lightbox-img {
+  width: 100%;
+  max-height: 92vh;
+  object-fit: contain;
+  border-radius: 24px;
+  display: block;
+}
+.lightbox-close,
+.lightbox-nav {
+  position: absolute;
+  border: none;
+  background: rgba(255,255,255,.14);
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lightbox-close { top: -18px; right: -18px; }
+.lightbox-nav { top: 50%; transform: translateY(-50%); }
+.lightbox-prev { left: -18px; }
+.lightbox-next { right: -18px; }
+.lightbox-caption {
+  margin-top: 14px;
+  color: rgba(255,255,255,.82);
+  text-align: center;
+  font-size: .95rem;
+  line-height: 1.4;
 }
 .vehicle-card:hover .vehicle-img-wrap img { transform: scale(1.04); }
 .vehicle-category-badge {
@@ -366,7 +492,7 @@ function gtag_report_conversion(url) {
 
 /* ── Responsive ──────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .vehicle-card { grid-template-columns: 1fr; }
+  .vehicle-card { grid-template-columns: 1fr; width: 100%; }
   .vehicle-img-wrap { min-height: 260px; }
   .vehicle-body { padding: 32px; }
   .vehicle-strip { padding: 16px 32px; }
@@ -399,8 +525,8 @@ function gtag_report_conversion(url) {
       "@type": "WebPage",
       "@id": "https://aptravelrental.in/fleet/",
       "url": "https://aptravelrental.in/fleet/",
-      "name": "Our Fleet | AC Buses & Tempo Travellers Mumbai | AP Travel & Rental",
-      "description": "Premium AC bus fleet in Mumbai — KGN Executive Bus (40-seater), Blue Star Coach (45-seater), Tempo Travellers (9–17 seater). GPS-tracked, sanitized, professionally driven.",
+      "name": "Our Fleet | AC Buses & Luxury Sleeper Coach Mumbai | AP Travel & Rental",
+      "description": "Premium AC bus fleet in Mumbai — KGN Executive Bus (40-seater), Blue Star Coach (45-seater), AP Luxury Sleeper Coach. GPS-tracked, sanitized, professionally driven.",
       "inLanguage": "en-IN",
       "isPartOf": {"@id": "https://aptravelrental.in/#website"}
     },
@@ -430,8 +556,8 @@ function gtag_report_conversion(url) {
           "@type": "ListItem", "position": 3,
           "item": {
             "@type": "Product",
-            "name": "Tempo Traveller",
-            "description": "9 to 17-seater AC tempo travellers for family trips, small corporate groups, airport transfers and local tours across Mumbai and Maharashtra.",
+            "name": "AP Luxury Sleeper Coach",
+            "description": "Premium overnight sleeper coach with luxury berths, charging points, full AC and hygienic travel for long-distance journeys.",
             "offers": {"@type":"Offer","priceCurrency":"INR","seller":{"@type":"LocalBusiness","name":"AP Travel & Rental"}}
           }
         }
@@ -521,8 +647,8 @@ function gtag_report_conversion(url) {
 <div class="filter-bar" role="navigation" aria-label="Filter fleet by type">
   <div class="filter-bar-inner">
     <button class="filter-btn active" data-filter="all">All Vehicles</button>
-    <button class="filter-btn" data-filter="bus">Buses (35–45 Seater)</button>
-    <button class="filter-btn" data-filter="tempo">Tempo Traveller (9–17)</button>
+    <button class="filter-btn" data-filter="bus">Buses & Coaches</button>
+    <button class="filter-btn" data-filter="sleeper">Luxury Sleeper Coach</button>
     <span class="filter-count" id="filterCount">3 vehicles available</span>
   </div>
 </div>
@@ -533,15 +659,16 @@ function gtag_report_conversion(url) {
     <h2 id="listing-heading" class="sr-only">Vehicle listing</h2>
 
     <!-- ─── CARD 1: KGN Executive Bus ─────────────────── -->
-    <article class="vehicle-card reveal" data-category="bus" id="kgn-bus">
+    <article class="vehicle-card reveal" data-category="bus" id="kgn-bus" data-vehicle-key="kgn-bus">
       <div class="vehicle-img-wrap">
-        <img
-          src="/assets/images/KGN_BLUE.webp"
-          alt="KGN Executive Bus — 40-seater AC bus for hire in Mumbai"
-          loading="eager"
-          fetchpriority="high"
-          width="840" height="640"
-        >
+        <div class="vehicle-gallery" data-gallery="kgn-bus">
+          <div class="gallery-main">
+            <button class="gallery-arrow gallery-prev" type="button" aria-label="Previous image">‹</button>
+            <img src="/assets/images/KGN_BLUE.webp" alt="KGN Executive Bus front view" loading="eager" fetchpriority="high" width="840" height="640">
+            <button class="gallery-arrow gallery-next" type="button" aria-label="Next image">›</button>
+          </div>
+          <div class="gallery-thumbs" aria-label="KGN Executive Bus thumbnails"></div>
+        </div>
         <span class="vehicle-category-badge badge-popular">Most Popular</span>
       </div>
 
@@ -658,14 +785,16 @@ function gtag_report_conversion(url) {
     </article>
 
     <!-- ─── CARD 2: Blue Star Coach ────────────────────── -->
-    <article class="vehicle-card reveal" data-category="bus" id="blue-star">
+    <article class="vehicle-card reveal" data-category="bus" id="blue-star" data-vehicle-key="blue-star">
       <div class="vehicle-img-wrap">
-        <img
-          src="/assets/images/blue-star.webp"
-          alt="Blue Star Executive Coach — 45-seater luxury AC bus Mumbai"
-          loading="lazy"
-          width="840" height="640"
-        >
+        <div class="vehicle-gallery" data-gallery="blue-star">
+          <div class="gallery-main">
+            <button class="gallery-arrow gallery-prev" type="button" aria-label="Previous image">‹</button>
+            <img src="/assets/images/blue-star.webp" alt="Blue Star Executive Coach front view" loading="lazy" width="840" height="640">
+            <button class="gallery-arrow gallery-next" type="button" aria-label="Next image">›</button>
+          </div>
+          <div class="gallery-thumbs" aria-label="Blue Star Executive Coach thumbnails"></div>
+        </div>
         <span class="vehicle-category-badge badge-premium">Premium</span>
       </div>
 
@@ -781,26 +910,27 @@ function gtag_report_conversion(url) {
       </div>
     </article>
 
-    <!-- ─── CARD 3: Tempo Traveller ────────────────────── -->
-    <article class="vehicle-card reveal" data-category="tempo" id="tempo-traveller">
+    <!-- ─── CARD 3: AP Luxury Sleeper Coach ─────────────── -->
+    <article class="vehicle-card reveal" data-category="sleeper" id="ap-sleeper" data-vehicle-key="ap-sleeper">
       <div class="vehicle-img-wrap">
-        <img
-          src="/assets/images/blue-star-inside.webp"
-          alt="Tempo Traveller — 9 to 17 seater AC van for hire Mumbai"
-          loading="lazy"
-          width="840" height="640"
-        >
-        <span class="vehicle-category-badge badge-flexible">Flexible</span>
+        <div class="vehicle-gallery" data-gallery="ap-sleeper">
+          <div class="gallery-main">
+            <button class="gallery-arrow gallery-prev" type="button" aria-label="Previous image">‹</button>
+            <img src="/assets/images/ap.webp" alt="AP Luxury Sleeper Coach front view" loading="lazy" width="840" height="640">
+            <button class="gallery-arrow gallery-next" type="button" aria-label="Next image">›</button>
+          </div>
+          <div class="gallery-thumbs" aria-label="AP Luxury Sleeper Coach thumbnails"></div>
+        </div>
+        <span class="vehicle-category-badge badge-luxury">Luxury Sleeper</span>
       </div>
 
       <div style="display:flex;flex-direction:column;">
         <div class="vehicle-body">
           <div class="vehicle-meta">
-            <div class="vehicle-type-tag">Tempo Traveller · 9–17 Seater</div>
-            <h2 class="vehicle-name">Tempo Traveller</h2>
+            <div class="vehicle-type-tag">Luxury Sleeper Coach · 2+1 Berths</div>
+            <h2 class="vehicle-name">AP Luxury Sleeper Coach</h2>
             <p class="vehicle-tagline">
-              The smart pick for smaller groups — family outings, small team transfers, pilgrimage trips,
-              and airport pickups where a full-size bus would be overkill.
+              Premium overnight coach with luxury berths, charging points, and elevated comfort for long-distance journeys.
             </p>
 
             <div class="vehicle-capacity-row">
@@ -883,7 +1013,7 @@ function gtag_report_conversion(url) {
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
               Book Now
             </a>
-            <a href="https://wa.me/919322099980?text=Hi%2C%20I%20want%20to%20book%20a%20Tempo%20Traveller" class="btn btn-ghost" style="background:rgba(37,193,102,.08);color:#128C7E;border:1.5px solid rgba(37,193,102,.25)" target="_blank" rel="noopener noreferrer" onclick="return gtag_report_conversion('https://wa.me/919322099980?text=Hi%2C%20I%20want%20to%20book%20a%20Tempo%20Traveller', '_blank')">
+            <a href="https://wa.me/919322099980?text=Hi%2C%20I%20want%20to%20book%20AP%20Luxury%20Sleeper%20Coach" class="btn btn-ghost" style="background:rgba(37,193,102,.08);color:#128C7E;border:1.5px solid rgba(37,193,102,.25)" target="_blank" rel="noopener noreferrer" onclick="return gtag_report_conversion('https://wa.me/919322099980?text=Hi%2C%20I%20want%20to%20book%20AP%20Luxury%20Sleeper%20Coach', '_blank')">
               <svg viewBox="0 0 32 32" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.5c0 2.5.7 4.8 1.9 6.8L3 29l6.9-2.1c1.9 1 4 1.6 6.1 1.6 7 0 12.7-5.6 12.7-12.5S23 3 16 3zm5.8 17.2c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.3-.2-.3 0-.5.1-.7l.5-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.6s-.7-1.8-1-2.4c-.3-.7-.5-.6-.7-.6h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.2 3.4 5.3 4.7.7.3 1.3.5 1.8.6.7.2 1.4.2 1.9.1.6-.1 1.9-.8 2.1-1.5.3-.7.3-1.4.2-1.5-.1-.1-.3-.2-.6-.3z"/></svg>
               WhatsApp Us
             </a>
@@ -924,7 +1054,7 @@ function gtag_report_conversion(url) {
             <th scope="col">Feature</th>
             <th scope="col">KGN Executive Bus</th>
             <th scope="col" class="highlight-col">Blue Star Coach</th>
-            <th scope="col">Tempo Traveller</th>
+            <th scope="col">AP Luxury Sleeper Coach</th>
           </tr>
         </thead>
         <tbody>
@@ -1041,7 +1171,7 @@ function gtag_report_conversion(url) {
       <h4>Fleet</h4>
       <a href="/fleet/#kgn-bus">KGN Executive Bus</a>
       <a href="/fleet/#blue-star">Blue Star Coach</a>
-      <a href="/fleet/#tempo-traveller">Tempo Traveller</a>
+      <a href="/fleet/#ap-sleeper">AP Luxury Sleeper Coach</a>
     </div>
     <div class="footer-col">
       <h4>Services</h4>
@@ -1085,26 +1215,297 @@ function gtag_report_conversion(url) {
 <!-- ── JS ────────────────────────────────────────────── -->
 <script src="../assets/js/main.js" defer></script>
 <script>
-  // Fleet-specific: filter buttons
+  // Fleet-specific: filter buttons, gallery, and lightbox
   document.addEventListener('DOMContentLoaded', () => {
     const filterBtns = document.querySelectorAll('.filter-btn');
     const cards = document.querySelectorAll('.vehicle-card');
     const countEl = document.getElementById('filterCount');
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.setAttribute('role', 'dialog');
+    lightbox.setAttribute('aria-modal', 'true');
+    lightbox.setAttribute('aria-label', 'Image preview');
+    lightbox.innerHTML = `
+      <div class="lightbox-content">
+        <button class="lightbox-close" type="button" aria-label="Close image preview">✕</button>
+        <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">‹</button>
+        <img class="lightbox-img" src="" alt="" />
+        <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">›</button>
+        <div class="lightbox-caption"></div>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+
+    const updateCount = () => {
+      const visible = document.querySelectorAll('.vehicle-card:not(.hidden)').length;
+      countEl.textContent = `${visible} vehicle${visible !== 1 ? 's' : ''} available`;
+    };
 
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         filterBtns.forEach(b => b.classList.remove('active'));
         btn.classList.add('active');
         const filter = btn.dataset.filter;
-        let visible = 0;
         cards.forEach(card => {
           const match = filter === 'all' || card.dataset.category === filter;
           card.classList.toggle('hidden', !match);
-          if (match) visible++;
         });
-        countEl.textContent = `${visible} vehicle${visible !== 1 ? 's' : ''} available`;
+        updateCount();
       });
     });
+
+    const openLightbox = (src, alt, gallery) => {
+      const lbImg = lightbox.querySelector('.lightbox-img');
+      const caption = lightbox.querySelector('.lightbox-caption');
+      lbImg.src = src;
+      lbImg.alt = alt;
+      caption.textContent = alt;
+      lightbox.dataset.gallery = gallery;
+      lightbox.classList.add('active');
+    };
+
+    const closeLightbox = () => lightbox.classList.remove('active');
+
+    const fleetGalleryData = {
+      'kgn-bus': {
+        variants: [
+          {
+            src: '/assets/images/KGN_BLUE.webp',
+            thumbSrc: '/assets/images/KGN_BLUE.webp',
+            alt: 'KGN Executive Bus front view',
+            title: 'KGN Executive Bus',
+            type: 'Executive Bus · 35–40 Seater',
+            tagline: 'Our most-booked coach — a go-to for corporate shuttles, conference transfers, school trips, and outstation tours across Maharashtra.',
+            capacity: [
+              { icon: '🪑', strong: '40', label: 'Seats' },
+              { icon: '🛣️', strong: 'City + Outstation', label: 'Route type' }
+            ],
+            specs: [
+              { icon: '❄️', strong: 'Full Air Conditioning', text: 'Climate-controlled cabin' },
+              { icon: '💺', strong: 'Pushback Seating', text: 'Reclining comfort seats' },
+              { icon: '📍', strong: 'GPS Tracking', text: 'Real-time location' },
+              { icon: '🎵', strong: 'Music System', text: 'Stereo with mic' },
+              { icon: '🧳', strong: 'Luggage Space', text: 'Undercarriage + overhead' },
+              { icon: '🧼', strong: 'Sanitized Daily', text: 'Full clean before every trip' }
+            ],
+            useCases: ['🏢 Corporate Events', '🎒 School Trips', '💒 Wedding Shuttles', '🗺️ Outstation Tours', '✈️ Airport Transfers', '🏭 Factory Visits']
+          },
+          {
+            src: '/assets/images/KGN-font.webp',
+            thumbSrc: '/assets/images/KGN-font.webp',
+            alt: 'KGN Executive Bus interior view',
+            title: 'KGN Executive Bus — Interior View',
+            type: 'Executive Bus · 35–40 Seater',
+            tagline: 'Interior highlights, showcasing spacious boarding, comfortable seats, and a smooth ride for group travel across Mumbai and surrounding cities.',
+            capacity: [
+              { icon: '🪑', strong: '40', label: 'Seats' },
+              { icon: '🛣️', strong: 'City + Outstation', label: 'Route type' }
+            ],
+            specs: [
+              { icon: '❄️', strong: 'Full AC', text: 'Quiet cabin cooling' },
+              { icon: '💺', strong: 'Reclining Seats', text: 'Wide passenger comfort' },
+              { icon: '🪟', strong: 'Tinted Windows', text: 'Privacy on board' },
+              { icon: '🎧', strong: 'Music Ready', text: 'Speaker system included' },
+              { icon: '🧳', strong: 'Ample Storage', text: 'Luggage bay + overhead racks' },
+              { icon: '🧼', strong: 'Clean Journey', text: 'Sanitized before departure' }
+            ],
+            useCases: ['🚗 Airport Transfer', '🎉 Family Outings', '🏫 Group Training', '📦 Equipment Transport', '🛍️ Exhibition Shuttles']
+          }
+        ]
+      },
+      'blue-star': {
+        variants: [
+          {
+            src: '/assets/images/blue-star.webp',
+            thumbSrc: '/assets/images/blue-star.webp',
+            alt: 'Blue Star Executive Coach front view',
+            title: 'Blue Star Executive Coach',
+            type: 'Luxury Coach · 40–45 Seater',
+            tagline: 'Our flagship coach with premium recliner seating, curtained windows and strong onboard comfort for large teams and events.',
+            capacity: [
+              { icon: '🪑', strong: '45', label: 'Seats' },
+              { icon: '🏆', strong: 'Flagship Vehicle', label: 'Top of the fleet' }
+            ],
+            specs: [
+              { icon: '❄️', strong: 'Dual-Zone AC', text: 'Even cooling throughout' },
+              { icon: '🛋️', strong: 'Recliner Seats', text: 'Full-back comfort' },
+              { icon: '📍', strong: 'GPS Tracking', text: 'Live route updates' },
+              { icon: '🪟', strong: 'Curtained Windows', text: 'Privacy for all passengers' },
+              { icon: '🎵', strong: 'Premium Music', text: 'Stereo and mic ready' },
+              { icon: '🧳', strong: 'Large Luggage', text: 'Spacious storage bay' }
+            ],
+            useCases: ['💒 Wedding Baraats', '🏢 Corporate Retreats', '🗺️ Long Tours', '🎉 Large Events', '🏖️ Goa Trips', '🎓 College Excursions']
+          },
+          {
+            src: '/assets/images/blue-star-right.webp',
+            thumbSrc: '/assets/images/blue-star-right.webp',
+            alt: 'Blue Star Executive Coach side view',
+            title: 'Blue Star Executive Coach — Side View',
+            type: 'Luxury Coach · 40–45 Seater',
+            tagline: 'Stylish exterior and side profile with spacious entry, ideal for elegant event transfers and executive travel.',
+            capacity: [
+              { icon: '🪑', strong: '45', label: 'Seats' },
+              { icon: '✨', strong: 'Luxury Finish', label: 'Executive style' }
+            ],
+            specs: [
+              { icon: '❄️', strong: 'Full AC', text: 'Cool and quiet ride' },
+              { icon: '🛋️', strong: 'Luxury Seats', text: 'Superior passenger comfort' },
+              { icon: '🪟', strong: 'Privacy Curtains', text: 'Discreet travel experience' },
+              { icon: '🧳', strong: 'Storage Space', text: 'Room for luggage' },
+              { icon: '🚦', strong: 'Highway Ready', text: 'Perfect for outstation' }
+            ],
+            useCases: ['👔 Executive Transfers', '🛍️ Brand Launches', '🏰 Destination Weddings', '📣 Conference Shuttles']
+          },
+          {
+            src: '/assets/images/blue-star-back.webp',
+            thumbSrc: '/assets/images/blue-star-back.webp',
+            alt: 'Blue Star Executive Coach rear view',
+            title: 'Blue Star Executive Coach — Rear View',
+            type: 'Luxury Coach · 40–45 Seater',
+            tagline: 'Rear design and build quality, built for efficiency and comfort on outstation roads with premium travel assurance.',
+            capacity: [
+              { icon: '🪑', strong: '45', label: 'Seats' },
+              { icon: '🛣️', strong: 'Outstation Ready', label: 'Long route comfort' }
+            ],
+            specs: [
+              { icon: '❄️', strong: 'AC Comfort', text: 'Stable cabin climate' },
+              { icon: '🧳', strong: 'Luggage Bay', text: 'Large storage capacity' },
+              { icon: '🔧', strong: 'Well Serviced', text: 'Maintained for safety' },
+              { icon: '👔', strong: 'Professional Driver', text: 'Experienced on highways' }
+            ],
+            useCases: ['🛣️ Highway Tours', '🎤 Event Logistics', '🎓 College Trips', '📦 Group Transport']
+          },
+          {
+            src: '/assets/images/blue-star-inside.webp',
+            thumbSrc: '/assets/images/blue-star-inside.webp',
+            alt: 'Blue Star Executive Coach interior view',
+            title: 'Blue Star Executive Coach — Interior',
+            type: 'Luxury Coach · 40–45 Seater',
+            tagline: 'Interior view with plush seats, lighting and cabin comfort designed for long-distance travel and premium group journeys.',
+            capacity: [
+              { icon: '🪑', strong: '45', label: 'Seats' },
+              { icon: '🛋️', strong: 'Recliner Comfort', label: 'Passenger comfort' }
+            ],
+            specs: [
+              { icon: '❄️', strong: 'Climate Control', text: 'Balanced temperature' },
+              { icon: '🎵', strong: 'Entertainment', text: 'Onboard audio system' },
+              { icon: '💡', strong: 'LED Lights', text: 'Soft interior lighting' },
+              { icon: '🧳', strong: 'Easy Access', text: 'Wide aisle space' }
+            ],
+            useCases: ['🌙 Overnight Trips', '🍽️ Tour Shuttles', '💼 Corporate Tours', '❤️ Special Occasions']
+          }
+        ]
+      },
+      'ap-sleeper': {
+        variants: [
+          {
+            src: '/assets/images/ap.webp',
+            thumbSrc: '/assets/images/ap.webp',
+            alt: 'AP Luxury Sleeper Coach front view',
+            title: 'AP Luxury Sleeper Coach',
+            type: 'Luxury Sleeper Coach · 2+1 Berths',
+            tagline: 'Premium overnight coach with luxury berths, charging points, and elevated comfort for long-distance journeys.',
+            capacity: [
+              { icon: '🛌', strong: '2+1', label: 'Berths' },
+              { icon: '⚡', strong: 'USB Points', label: 'Charging ready' }
+            ],
+            specs: [
+              { icon: '❄️', strong: 'Full AC', text: 'Comfort in every berth' },
+              { icon: '🔌', strong: 'Charging Points', text: 'Phones and devices' },
+              { icon: '🧳', strong: 'Cabin Storage', text: 'Personal luggage racks' },
+              { icon: '🧼', strong: 'Sanitized', text: 'Hygienic sleeper environment' }
+            ],
+            useCases: ['🌙 Overnight Travel', '✈️ Airport Layovers', '🏞️ Pilgrimage Tours', '🧳 Long Distance Comfort']
+          },
+          {
+            src: '/assets/images/ap-black.webp',
+            thumbSrc: '/assets/images/ap-black.webp',
+            alt: 'AP Luxury Sleeper Coach night view',
+            title: 'AP Luxury Sleeper Coach — Night Mode',
+            type: 'Luxury Sleeper Coach · 2+1 Berths',
+            tagline: 'Nighttime ambience with soft cabin lighting, ideal for restful highway travel and overnight passenger comfort.',
+            capacity: [
+              { icon: '🛌', strong: '2+1', label: 'Berths' },
+              { icon: '🌙', strong: 'Night Travel', label: 'Quiet hours' }
+            ],
+            specs: [
+              { icon: '💡', strong: 'Mood Lighting', text: 'Calming night interior' },
+              { icon: '🛌', strong: 'Privacy Curtains', text: 'Personal berth space' },
+              { icon: '🔌', strong: 'Power Points', text: 'Device charging' },
+              { icon: '🧼', strong: 'Fresh Linens', text: 'Hygienic bedding' }
+            ],
+            useCases: ['🌙 Overnight Riders', '🛫 Airport Drop', '🕌 Pilgrimage Routes', '🧑‍🤝‍🧑 Small Groups']
+          },
+          {
+            src: '/assets/images/ap-inside.webp',
+            thumbSrc: '/assets/images/ap-inside.webp',
+            alt: 'AP Luxury Sleeper Coach interior view',
+            title: 'AP Luxury Sleeper Coach — Interior',
+            type: 'Luxury Sleeper Coach · 2+1 Berths',
+            tagline: 'Interior cabin featuring luxury berths, reading lights and organized storage for tranquil overnight travel.',
+            capacity: [
+              { icon: '🛌', strong: '2+1', label: 'Berths' },
+              { icon: '💺', strong: 'Lounge Seating', label: 'Shared cabin' }
+            ],
+            specs: [
+              { icon: '📚', strong: 'Reading Lights', text: 'Personal berth lighting' },
+              { icon: '🔌', strong: 'Charging Ports', text: 'Stay powered' },
+              { icon: '🧼', strong: 'Clean Cabins', text: 'Sanitized interiors' },
+              { icon: '🪟', strong: 'Tinted Glass', text: 'Quiet privacy' }
+            ],
+            useCases: ['🏕️ Overnight Routes', '🚑 Medical Transfers', '🛤️ Long-Haul Journeys', '🧳 Premium Groups']
+          },
+          {
+            src: '/assets/images/ap-black-inside.webp',
+            thumbSrc: '/assets/images/ap-black-inside.webp',
+            alt: 'AP Luxury Sleeper Coach berth view',
+            title: 'AP Luxury Sleeper Coach — Berth View',
+            type: 'Luxury Sleeper Coach · 2+1 Berths',
+            tagline: 'Cozy berth layout showing soft padding, curtains and privacy-focused design for undisturbed rest on the road.',
+            capacity: [
+              { icon: '🛌', strong: '2+1', label: 'Berths' },
+              { icon: '🔒', strong: 'Private Berths', label: 'True privacy' }
+            ],
+            specs: [
+              { icon: '🛌', strong: 'Private Berths', text: 'Comfortable sleeping space' },
+              { icon: '🔋', strong: 'Mobile Charging', text: 'Power at every berth' },
+              { icon: '🧼', strong: 'Hygienic Linens', text: 'Fresh and clean' },
+              { icon: '🎧', strong: 'Quiet Ride', text: 'Calm overnight travel' }
+            ],
+            useCases: ['😴 Overnight Comfort', '🧳 Luxury Transit', '✈️ Airport Connections', '🛤️ Intercity Trips']
+          }
+        ]
+      }
+    };
+
+    window.initFleetGalleries(fleetGalleryData, {
+      onOpenLightbox: openLightbox
+    });
+
+    document.addEventListener('click', event => {
+      const target = event.target;
+      if (target.matches('.lightbox-close') || target.matches('.lightbox')) {
+        closeLightbox();
+      }
+
+      if (target.matches('.lightbox-nav')) {
+        const gallery = document.querySelector(`[data-gallery="${lightbox.dataset.gallery}"]`);
+        if (!gallery) return;
+        const thumbs = Array.from(gallery.querySelectorAll('.thumb-btn'));
+        const activeIndex = thumbs.findIndex(btn => btn.classList.contains('active'));
+        const nextIndex = target.classList.contains('lightbox-prev') ? Math.max(activeIndex - 1, 0) : Math.min(activeIndex + 1, thumbs.length - 1);
+        if (thumbs[nextIndex]) {
+          thumbs[nextIndex].click();
+          openLightbox(thumbs[nextIndex].dataset.src, thumbs[nextIndex].dataset.alt, gallery.dataset.gallery);
+        }
+      }
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeLightbox();
+    });
+
+    updateCount();
   });
 </script>
 </body>

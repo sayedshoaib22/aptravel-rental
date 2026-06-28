@@ -279,6 +279,106 @@
     lazyImgs.forEach(img => imgObs.observe(img));
   }
 
+  window.initFleetGalleries = function(vehicleData = {}, options = {}) {
+    const fadeClass = 'fade';
+    const activeClass = 'active';
+
+    const renderCapacity = (items) => items.map(item => `
+      <div class="cap-badge" style="background:rgba(37,193,102,.08);border-color:rgba(37,193,102,.2)">
+        <span class="cap-icon" aria-hidden="true">${item.icon}</span>
+        <div class="cap-text">
+          <strong>${item.strong}</strong>
+          <span>${item.label}</span>
+        </div>
+      </div>
+    `).join('');
+
+    const renderSpecs = (items) => items.map(item => `
+      <div class="spec-item" role="listitem">
+        <span class="spec-icon" aria-hidden="true">${item.icon}</span>
+        <div class="spec-text">
+          <strong>${item.strong}</strong>
+          <span>${item.text}</span>
+        </div>
+      </div>
+    `).join('');
+
+    const renderUseCases = (items) => items.map(label => `<span class="use-pill">${label}</span>`).join('');
+
+    const galleries = document.querySelectorAll('.vehicle-gallery[data-gallery]');
+    galleries.forEach(gallery => {
+      const card = gallery.closest('.vehicle-card');
+      const key = card?.dataset.vehicleKey || gallery.dataset.gallery;
+      const model = vehicleData[key];
+      if (!card || !model) return;
+
+      const mainImg = gallery.querySelector('.gallery-main img');
+      const thumbs = gallery.querySelector('.gallery-thumbs');
+      const nameEl = card.querySelector('.vehicle-name');
+      const taglineEl = card.querySelector('.vehicle-tagline');
+      const typeTagEl = card.querySelector('.vehicle-type-tag');
+      const capacityEl = card.querySelector('.vehicle-capacity-row');
+      const specsEl = card.querySelector('.vehicle-specs');
+      const useCasesEl = card.querySelector('.use-cases-pills');
+      if (!mainImg || !thumbs || !nameEl || !taglineEl || !typeTagEl || !capacityEl || !specsEl || !useCasesEl) return;
+
+      const createThumb = (item, index) => `
+        <button class="thumb-btn${index === 0 ? ' active' : ''}" type="button" data-index="${index}" data-src="${item.src}" data-alt="${item.alt}" aria-label="${item.alt}">
+          <img src="${item.thumbSrc || item.src}" alt="${item.alt}">
+        </button>
+      `;
+
+      const setVariant = (index) => {
+        const item = model.variants[index];
+        if (!item) return;
+        thumbs.querySelectorAll('.thumb-btn').forEach((btn, btnIndex) => btn.classList.toggle(activeClass, btnIndex === index));
+
+        mainImg.classList.add(fadeClass);
+        requestAnimationFrame(() => {
+          mainImg.src = item.src;
+          mainImg.alt = item.alt;
+          nameEl.textContent = item.title;
+          taglineEl.textContent = item.tagline;
+          typeTagEl.textContent = item.type;
+          capacityEl.innerHTML = renderCapacity(item.capacity);
+          specsEl.innerHTML = renderSpecs(item.specs);
+          useCasesEl.innerHTML = renderUseCases(item.useCases);
+        });
+
+        mainImg.addEventListener('animationend', () => mainImg.classList.remove(fadeClass), { once: true });
+      };
+
+      thumbs.innerHTML = model.variants.map(createThumb).join('');
+      setVariant(0);
+
+      thumbs.addEventListener('click', (event) => {
+        const btn = event.target.closest('.thumb-btn');
+        if (!btn) return;
+        const index = Number(btn.dataset.index);
+        if (Number.isNaN(index)) return;
+        setVariant(index);
+      });
+
+      const nav = (direction) => {
+        const btns = Array.from(thumbs.querySelectorAll('.thumb-btn'));
+        const activeIndex = btns.findIndex(btn => btn.classList.contains(activeClass));
+        const nextIndex = direction === 'prev' ? Math.max(activeIndex - 1, 0) : Math.min(activeIndex + 1, btns.length - 1);
+        btns[nextIndex]?.click();
+      };
+
+      gallery.querySelector('.gallery-prev')?.addEventListener('click', () => nav('prev'));
+      gallery.querySelector('.gallery-next')?.addEventListener('click', () => nav('next'));
+
+      if (typeof options.onOpenLightbox === 'function') {
+        mainImg.addEventListener('click', () => {
+          const activeIndex = Array.from(thumbs.querySelectorAll('.thumb-btn')).findIndex(btn => btn.classList.contains(activeClass));
+          const item = model.variants[activeIndex] || model.variants[0];
+          options.onOpenLightbox(item.src, item.alt, key);
+        });
+      }
+    });
+  };
+
 })();
 
 (function () {
