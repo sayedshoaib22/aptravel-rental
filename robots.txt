@@ -1,6 +1,5 @@
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /private/
-Disallow: /temp/
-Sitemap: https://aptravelrental.in/sitemap.xml
+Disallow: /image/
+
+Sitemap: https://nszgoaride.com/sitemap.xml
