@@ -157,7 +157,7 @@
   /* ── Contact form ────────────────────────────────────────── */
   const form = document.getElementById('contactForm');
   const formStatus = document.getElementById('formStatus');
-  const BACKEND_URL = 'https://backend.railway.internal';
+  const API_URL = 'https://vartiss-backend-production-8be8.up.railway.app';
 
   form?.addEventListener('submit', async e => {
     e.preventDefault();
@@ -178,8 +178,10 @@
     }
 
     // Send to backend
+    const url = `${API_URL}/api/enquiry`;
+    console.log('Submitting to:', url);
     try {
-      const resp = await fetch(`${BACKEND_URL}/api/enquiry`, {
+      const resp = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -190,10 +192,12 @@
           message: data.message || ''
         })
       });
-      const json = await resp.json().catch(() => null);
-      console.log('Enquiry response', resp.status, json);
+      console.log('Response:', resp.status);
+      const json = await resp.json().catch(async () => {
+        try { const t = await resp.text(); return { text: t }; } catch(e){ return null; }
+      });
       if (!resp.ok) {
-        console.error('Enquiry failed', json);
+        console.error('Server error:', json);
         if (formStatus) {
           formStatus.className = 'form-status error';
           formStatus.textContent = 'Sorry, we could not send your enquiry. Please try again later.';
